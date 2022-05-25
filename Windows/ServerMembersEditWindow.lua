@@ -1,7 +1,9 @@
 function LootReserve.Server.MembersEdit:UpdateMembersList()
     LootReserveServerButtonMembersEdit:SetGlow(not LootReserve.Server.CurrentSession and next(LootReserve.Server.NewSessionSettings.ImportedMembers));
 
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     self.Window.Header.Name:SetWidth(LootReserve:IsCrossRealm() and 300 or 200);
     self.Window:SetMinResize(LootReserve:IsCrossRealm() and 650 or 550, 150);
@@ -94,10 +96,12 @@ function LootReserve.Server.MembersEdit:UpdateMembersList()
                 table.insert(missing, item);
             end
         end
-        
+
         local last = 0;
         local lastCount = 0;
-        for _, item in LootReserve:Ordered(itemOrder, function(a, b) return a < b end) do
+        for _, item in LootReserve:Ordered(itemOrder, function(a, b)
+            return a < b
+        end) do
             local count = reservedItems[item:GetID()];
             last = last + 1;
             local button = frame.ReservesFrame.Items[last];
@@ -109,7 +113,7 @@ function LootReserve.Server.MembersEdit:UpdateMembersList()
             if last == 1 then
                 button:SetPoint("LEFT", frame.ReservesFrame, "LEFT");
             else
-                button:SetPoint("LEFT", frame.ReservesFrame.Items[last - 1], "RIGHT", 4 + (lastCount > 0 and 10 or 0) + lastCount*8, 0);
+                button:SetPoint("LEFT", frame.ReservesFrame.Items[last - 1], "RIGHT", 4 + (lastCount > 0 and 10 or 0) + lastCount * 8, 0);
             end
             button:Show();
             button.Item = item:GetID();
@@ -133,9 +137,9 @@ function LootReserve.Server.MembersEdit:UpdateMembersList()
                 end
             end
             if count > 1 then
-               lastCount = #tostring(count);
+                lastCount = #tostring(count);
             else
-               lastCount = 0; 
+                lastCount = 0;
             end
         end
         for i = last + 1, #frame.ReservesFrame.Items do
@@ -143,7 +147,9 @@ function LootReserve.Server.MembersEdit:UpdateMembersList()
         end
     end
 
-    for player, member in LootReserve:Ordered(LootReserve.Server.CurrentSession and LootReserve.Server.CurrentSession.Members or LootReserve.Server.NewSessionSettings.ImportedMembers, function(aMember, bMember, aPlayer, bPlayer) return aPlayer < bPlayer; end) do
+    for player, member in LootReserve:Ordered(LootReserve.Server.CurrentSession and LootReserve.Server.CurrentSession.Members or LootReserve.Server.NewSessionSettings.ImportedMembers, function(aMember, bMember, aPlayer, bPlayer)
+        return aPlayer < bPlayer;
+    end) do
         createFrame(player, member);
     end
 
@@ -163,7 +169,9 @@ function LootReserve.Server.MembersEdit:UpdateMembersList()
 end
 
 function LootReserve.Server.MembersEdit:ClearImported()
-    if LootReserve.Server.CurrentSession then return; end
+    if LootReserve.Server.CurrentSession then
+        return ;
+    end
 
     table.wipe(LootReserve.Server.NewSessionSettings.ImportedMembers);
     self:UpdateMembersList();

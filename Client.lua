@@ -1,54 +1,52 @@
 LootReserve = LootReserve or { };
-LootReserve.Client =
-{
+LootReserve.Client = {
     -- Server Connection
     SessionServer = nil,
-    Masquerade    = nil,
+    Masquerade = nil,
 
     -- Server Session Info
-    StartTime         = 0,
+    StartTime = 0,
     AcceptingReserves = false,
     RemainingReserves = 0,
-    MaxReserves       = 0,
-    Locked            = false,
-    OptedOut          = false,
-    LootCategories    = nil,
-    Duration          = nil,
-    MaxDuration       = nil,
-    ItemReserves      = { }, -- { [ItemID] = { "Playername", "Playername", ... }, ... }
-    ItemConditions    = { },
-    RollRequest       = nil,
-    Equip             = true,
-    Blind             = false,
-    Multireserve      = 1,
+    MaxReserves = 0,
+    Locked = false,
+    OptedOut = false,
+    LootCategories = nil,
+    Duration = nil,
+    MaxDuration = nil,
+    ItemReserves = { }, -- { [ItemID] = { "Playername", "Playername", ... }, ... }
+    ItemConditions = { },
+    RollRequest = nil,
+    Equip = true,
+    Blind = false,
+    Multireserve = 1,
 
-    Settings =
-    {
-        RollRequestShow             = true,
-        RollRequestShowUnusable     = false,
+    Settings = {
+        RollRequestShow = true,
+        RollRequestShowUnusable = false,
         RollRequestGlowOnlyReserved = true,
         RollRequestAutoRollReserved = true,
         RollRequestAutoRollNotified = false,
-        RollRequestWinnerReaction   = true,
-        RollRequestLoserReaction    = true,
-        CollapsedExpansions         = { },
-        CollapsedCategories         = { },
-        SwapLDBButtons              = false,
-        LibDBIcon                   = { },
-        AllowPreCache               = false,
+        RollRequestWinnerReaction = true,
+        RollRequestLoserReaction = true,
+        CollapsedExpansions = { },
+        CollapsedCategories = { },
+        SwapLDBButtons = false,
+        LibDBIcon = { },
+        AllowPreCache = false,
     },
     CharacterFavorites = { },
-    GlobalFavorites    = { },
+    GlobalFavorites = { },
 
-    PendingItems             = { },
-    PendingOpt               = nil,
-    PendingOpen              = false,
-    ServerSearchTimeoutTime  = nil,
+    PendingItems = { },
+    PendingOpt = nil,
+    PendingOpen = false,
+    ServerSearchTimeoutTime = nil,
     DurationUpdateRegistered = false,
-    SessionEventsRegistered  = false,
-    CategoryFlashing         = false,
-    
-    PendingLootListUpdate    = nil,
+    SessionEventsRegistered = false,
+    CategoryFlashing = false,
+
+    PendingLootListUpdate = nil,
 
     SelectedCategory = nil,
 };
@@ -107,10 +105,14 @@ function LootReserve.Client:IsFavorite(itemID)
 end
 
 function LootReserve.Client:SetFavorite(itemID, enabled)
-    if self:IsFavorite(itemID) == (enabled and true or false) then return; end
-    
+    if self:IsFavorite(itemID) == (enabled and true or false) then
+        return ;
+    end
+
     local item = LootReserve.ItemCache:Item(itemID);
-    if not item or not item:GetInfo() then return; end
+    if not item or not item:GetInfo() then
+        return ;
+    end
     local bindType = item:GetBindType();
 
     local favorites = bindType == LE_ITEM_BIND_ON_ACQUIRE and self.CharacterFavorites or self.GlobalFavorites;
@@ -119,7 +121,9 @@ function LootReserve.Client:SetFavorite(itemID, enabled)
 end
 
 function LootReserve.Client:SearchForServer(startup)
-    if not startup and self.ServerSearchTimeoutTime and time() < self.ServerSearchTimeoutTime then return; end
+    if not startup and self.ServerSearchTimeoutTime and time() < self.ServerSearchTimeoutTime then
+        return ;
+    end
     self.ServerSearchTimeoutTime = time() + 10;
 
     LootReserve.Comm:BroadcastHello();
@@ -195,16 +199,20 @@ function LootReserve.Client:StartSession(server, starting, startTime, acceptingR
         local function OnTooltipSetHyperlink(tooltip)
             if self.SessionServer and not LootReserve:IsMe(self.SessionServer) then
                 local name, link = tooltip:GetItem();
-                if not link then return; end
-                
+                if not link then
+                    return ;
+                end
+
                 -- Check if it's already been added
                 local frame, text;
                 for i = 1, 50 do
-                frame = _G[tooltip:GetName() .. "TextLeft" .. i];
-                if frame then
-                    text = frame:GetText();
-                end
-                if text and string.find(text, " Reserved by ", 1, true) then return; end
+                    frame = _G[tooltip:GetName() .. "TextLeft" .. i];
+                    if frame then
+                        text = frame:GetText();
+                    end
+                    if text and string.find(text, " Reserved by ", 1, true) then
+                        return ;
+                    end
                 end
 
                 local item = LootReserve.ItemCache:Item(link);
@@ -214,12 +222,12 @@ function LootReserve.Client:StartSession(server, starting, startTime, acceptingR
                 end
             end
         end
-        GameTooltip             : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
-        ItemRefTooltip          : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
-        ItemRefShoppingTooltip1 : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
-        ItemRefShoppingTooltip2 : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
-        ShoppingTooltip1        : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
-        ShoppingTooltip2        : HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        ItemRefTooltip:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        ItemRefShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        ItemRefShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        ShoppingTooltip1:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
+        ShoppingTooltip2:HookScript("OnTooltipSetItem", OnTooltipSetHyperlink);
     end
 
     if starting then
@@ -233,17 +241,17 @@ function LootReserve.Client:StopSession()
 end
 
 function LootReserve.Client:ResetSession(refresh)
-    self.SessionServer     = nil;
+    self.SessionServer = nil;
     self.RemainingReserves = 0;
-    self.MaxReserves       = 0;
-    self.LootCategories    = nil;
-    self.ItemReserves      = { };
-    self.ItemConditions    = { };
-    self.Equip             = true;
-    self.Blind             = false;
-    self.Multireserve      = 1;
-    self.PendingItems      = { };
-    self.PendingOpts       = nil;
+    self.MaxReserves = 0;
+    self.LootCategories = nil;
+    self.ItemReserves = { };
+    self.ItemConditions = { };
+    self.Equip = true;
+    self.Blind = false;
+    self.Multireserve = 1;
+    self.PendingItems = { };
+    self.PendingOpts = nil;
 
     if not refresh then
         self:StopCategoryFlashing();
@@ -272,7 +280,9 @@ function LootReserve.Client:IsItemReservedByMe(itemID, bypassMasquerade)
     return false;
 end
 function LootReserve.Client:GetItemReservers(itemID)
-    if not self.SessionServer then return { }; end
+    if not self.SessionServer then
+        return { };
+    end
     return self.ItemReserves[itemID] or { };
 end
 
@@ -284,16 +294,24 @@ function LootReserve.Client:SetItemPending(itemID, pending)
 end
 
 function LootReserve.Client:Reserve(itemID)
-    if not self.SessionServer then return; end
-    if not self.AcceptingReserves then return; end
+    if not self.SessionServer then
+        return ;
+    end
+    if not self.AcceptingReserves then
+        return ;
+    end
     LootReserve.Client:SetItemPending(itemID, true);
     LootReserve.Client:UpdateReserveStatus();
     LootReserve.Comm:SendReserveItem(itemID);
 end
 
 function LootReserve.Client:CancelReserve(itemID)
-    if not self.SessionServer then return; end
-    if not self.AcceptingReserves then return; end
+    if not self.SessionServer then
+        return ;
+    end
+    if not self.AcceptingReserves then
+        return ;
+    end
     LootReserve.Client:SetItemPending(itemID, true);
     LootReserve.Client:UpdateReserveStatus();
     LootReserve.Comm:SendCancelReserve(itemID);
@@ -307,16 +325,24 @@ function LootReserve.Client:SetOptPending(pending)
 end
 
 function LootReserve.Client:OptOut()
-    if not self.SessionServer then return; end
-    if not self.AcceptingReserves then return; end
+    if not self.SessionServer then
+        return ;
+    end
+    if not self.AcceptingReserves then
+        return ;
+    end
     self:SetOptPending(true);
     LootReserve.Client:UpdateReserveStatus();
     LootReserve.Comm:SendOptOut();
 end
 
 function LootReserve.Client:OptIn()
-    if not self.SessionServer then return; end
-    if not self.AcceptingReserves then return; end
+    if not self.SessionServer then
+        return ;
+    end
+    if not self.AcceptingReserves then
+        return ;
+    end
     self:SetOptPending(true);
     LootReserve.Client:UpdateReserveStatus();
     LootReserve.Comm:SendOptIn();

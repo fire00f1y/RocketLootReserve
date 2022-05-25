@@ -2,17 +2,13 @@
 ## Title: LootReserve
 ## Notes: Soft reserves management addon
 ## Author: Damagus-Benediction|nOriginal addon by Tagar-NethergardeKeep
-
 ## Version: 2022-02-21
 ## X-Min-Allowed-Version: 2022-02-13
-
 ## OptionalDeps: ItemCache
-
 ## SavedVariables: LootReserveGlobalSave
 ## SavedVariablesPerCharacter: LootReserveCharacterSave
 
 embeds.xml
-
 LootReserve.lua
 Constants.lua
 Item.lua
@@ -22,7 +18,6 @@ Server.lua
 Comm.lua
 Data.lua
 ItemConditions.lua
-
 Windows/Common.xml
 Windows/ClientWindow.xml
 Windows/ServerWindow.xml

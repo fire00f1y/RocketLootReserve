@@ -12,6 +12,7 @@ A clear and concise description of what the bug is.
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -24,8 +25,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Version:**
+
 - WoW Version [e.g. TBC 2.5.3.42083] (It shows under Play button on launcher)
- - Addon Version [e.g. 2022-01-01]
+- Addon Version [e.g. 2022-01-01]
 
 **Additional context**
 Add any other context about the problem here.

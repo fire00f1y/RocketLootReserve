@@ -3,19 +3,21 @@ LootReserve.Item = { };
 
 local itemMeta = {
     __index = LootReserve.Item,
-    __eq    = function(item1, item2) return item1.id == item2.id and item1.suffix == item2.suffix end,
+    __eq = function(item1, item2)
+        return item1.id == item2.id and item1.suffix == item2.suffix
+    end,
 }
 
 local function NewItem(id, suffix, uniqueID, info, searchName, classesAllowed, unique)
     return setmetatable({
-        id             = tonumber(id),
-        suffix         = tonumber(suffix),
-        uniqueID       = tonumber(uniqueID),
-        info           = info,
-        name           = name,
-        link           = link,
-        texture        = texture,
-        searchName     = searchName,
+        id = tonumber(id),
+        suffix = tonumber(suffix),
+        uniqueID = tonumber(uniqueID),
+        info = info,
+        name = name,
+        link = link,
+        texture = texture,
+        searchName = searchName,
         classesAllowed = classesAllowed,
         classesAllowed = unique
     }, itemMeta);
@@ -33,7 +35,7 @@ setmetatable(LootReserve.Item, {
             local id, suffix, uniqueID = arg1:match("^.-item:(%d-):%d-:%d-:%d-:%d-:%d-:(.-):(.-):");
             return NewItem(id, suffix, uniqueID);
         else
-            return NewItem(arg1, unpack{...});
+            return NewItem(arg1, unpack { ... });
         end
     end
 });
@@ -54,18 +56,17 @@ function LootReserve.Item:GetStringData()
     return self:GetID(), self:GetSuffix() or "", self:GetUniqueID() or "";
 end
 
-
 function LootReserve.Item:GetString()
     return format("item:%d::::::%d:%d::::::::::", self:GetStringData());
 end
 
 function LootReserve.Item:GetInfo()
     if not self.info then
-        local info = {GetItemInfo(self:GetString())};
+        local info = { GetItemInfo(self:GetString()) };
         -- local name, link, quality, _, _, itemType, itemSubType, _, equipLoc, texture, _, _, _, bindType = unpack(info);
         local name = info[1];
         if name then
-            self.info       = info;
+            self.info = info;
             self.searchName = LootReserve:TransformSearchText(name);
 
             if not LootReserve.TooltipScanner then
@@ -77,7 +78,7 @@ function LootReserve.Item:GetInfo()
                 LootReserve.TooltipScanner.ClassesAllowed = format("^%s$", ITEM_CLASSES_ALLOWED:gsub("%%s", "(.+)"));
             end
             if not LootReserve.TooltipScanner.ProfessionAllowed then
-                LootReserve.TooltipScanner.ProfessionAllowed = format("^%s$", ITEM_MIN_SKILL:gsub("%d+%$",""):gsub("%%s ", "([%%u%%l%%s]+) "):gsub("%(%%d%)", "%%((%%d+)%%)"));
+                LootReserve.TooltipScanner.ProfessionAllowed = format("^%s$", ITEM_MIN_SKILL:gsub("%d+%$", ""):gsub("%%s ", "([%%u%%l%%s]+) "):gsub("%(%%d%)", "%%((%%d+)%%)"));
             end
             if not LootReserve.TooltipScanner.Unique then
                 LootReserve.TooltipScanner.Unique = format("^(%s)$", ITEM_UNIQUE);
@@ -93,15 +94,15 @@ function LootReserve.Item:GetInfo()
                 if line and line:GetText() then
                     if line:GetText():match(LootReserve.TooltipScanner.ClassesAllowed) then
                         self.classesAllowed = line:GetText():match(LootReserve.TooltipScanner.ClassesAllowed);
-                    
+
                     elseif line:GetText():match(LootReserve.TooltipScanner.ProfessionAllowed) then
                         local skill, level = line:GetText():match(LootReserve.TooltipScanner.ProfessionAllowed)
                         self.skillRequired = skill;
                         self.skillLevelRequired = tonumber(level);
-                    
+
                     elseif line:GetText():match(LootReserve.TooltipScanner.Unique) then
                         self.unique = true;
-                    
+
                     elseif line:GetText():match(LootReserve.TooltipScanner.StartsQuest) then
                         self.startsQuest = true;
                     end
@@ -132,7 +133,6 @@ function LootReserve.Item:Loaded()
     return GetItemInfo(self:GetID()) ~= nil;
 end
 
-
 function LootReserve.Item:GetSearchName()
     return self.searchName;
 end
@@ -151,13 +151,13 @@ function LootReserve.Item:StartsQuest()
 end
 
 function LootReserve.Item:GetName()
-    return ({self:GetInfo()})[1];
+    return ({ self:GetInfo() })[1];
 end
 function LootReserve.Item:GetLink()
-    return ({self:GetInfo()})[2];
+    return ({ self:GetInfo() })[2];
 end
 function LootReserve.Item:GetTexture()
-    return ({self:GetInfo()})[10];
+    return ({ self:GetInfo() })[10];
 end
 
 function LootReserve.Item:GetNameLinkTexture()
@@ -166,10 +166,10 @@ function LootReserve.Item:GetNameLinkTexture()
 end
 
 function LootReserve.Item:GetType()
-    return ({self:GetInfo()})[6];
+    return ({ self:GetInfo() })[6];
 end
 function LootReserve.Item:GetSubType()
-    return ({self:GetInfo()})[7];
+    return ({ self:GetInfo() })[7];
 end
 function LootReserve.Item:GetTypeSubType()
     local _, _, _, _, _, itemType, itemSubType = self:GetInfo();
@@ -177,13 +177,13 @@ function LootReserve.Item:GetTypeSubType()
 end
 
 function LootReserve.Item:GetQuality()
-    return ({self:GetInfo()})[3];
+    return ({ self:GetInfo() })[3];
 end
 
 function LootReserve.Item:GetEquipLocation()
-    return ({self:GetInfo()})[9];
+    return ({ self:GetInfo() })[9];
 end
 
 function LootReserve.Item:GetBindType()
-    return ({self:GetInfo()})[14];
+    return ({ self:GetInfo() })[14];
 end

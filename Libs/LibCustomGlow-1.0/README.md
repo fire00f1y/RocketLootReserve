@@ -32,15 +32,15 @@ xOffset,yOffset - offset of glow relative to region border;
 key - key of glow, allows for multiple glows on one frame;
 AutoCastGlow_Stop(frame[, key])
 
- Stops glow with set key over target frame
+Stops glow with set key over target frame
 
  
 
-Blizzard glow is based heavily on https://www.wowace.com/projects/libbuttonglow-1-0
+Blizzard glow is based heavily on https://www.wowace.com/projects/libbuttonglow-1-0
 
 ButtonGlow_Start(frame[, color[, frequency]]])
 
- Starts glow over target frame with set parameters:
+Starts glow over target frame with set parameters:
 
 frame - target frame to set glowing;
 color - {r,g,b,a}, color of particles and opacity, from 0 to 1. Defaul value is {0.95, 0.95, 0.32, 1};

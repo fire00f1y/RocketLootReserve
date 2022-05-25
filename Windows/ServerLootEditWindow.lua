@@ -2,10 +2,12 @@ function LootReserve.Server.LootEdit:UpdateLootList()
     LootReserveServerButtonLootEdit:SetGlow(false);
     for _ in pairs(LootReserve.Server:GetNewSessionItemConditions()) do
         LootReserveServerButtonLootEdit:SetGlow(true);
-        break;
+        break ;
     end
 
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     local filter = LootReserve.ItemCache:FormatSearchText(self.Window.Search:GetText());
     if #filter < 3 and not tonumber(filter) then
@@ -133,7 +135,7 @@ function LootReserve.Server.LootEdit:UpdateLootList()
                         if reward:IsCached() then
                             if item:IsCached() and matchesFilter(reward, filter) then
                                 createFrame(item, "Custom Item");
-                                break;
+                                break ;
                             end
                         else
                             table.insert(missing, reward);
@@ -164,7 +166,7 @@ function LootReserve.Server.LootEdit:UpdateLootList()
                                         if reward:IsCached() then
                                             if item:IsCached() and matchesFilter(reward, filter) then
                                                 createFrame(item, format("%s > %s", category.Name, child.Name));
-                                                break;
+                                                break ;
                                             end
                                         else
                                             table.insert(missing, reward);
@@ -211,7 +213,7 @@ function LootReserve.Server.LootEdit:UpdateLootList()
                 self:UpdateLootList();
             end);
         end
-        self.PendingLootEditUpdate:SetSpeed(math.ceil(#missing/LootReserve.ItemSearch.BatchFrames));
+        self.PendingLootEditUpdate:SetSpeed(math.ceil(#missing / LootReserve.ItemSearch.BatchFrames));
     end
 
     if self.SelectedCategory.Edited and list.LastIndex > 0 then
@@ -236,10 +238,12 @@ function LootReserve.Server.LootEdit:UpdateCategories()
     LootReserveServerButtonLootEdit:SetGlow(false);
     for _ in pairs(LootReserve.Server:GetNewSessionItemConditions()) do
         LootReserveServerButtonLootEdit:SetGlow(true);
-        break;
+        break ;
     end
 
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     local list = self.Window.Categories.Scroll.Container;
     list.Frames = list.Frames or { };
@@ -250,10 +254,10 @@ function LootReserve.Server.LootEdit:UpdateCategories()
         local frame = list.Frames[list.LastIndex];
         while not frame do
             frame = CreateFrame("CheckButton", nil, list,
-                category.Separator and "LootReserveCategoryListSeparatorTemplate" or
-                category.Children and "LootReserveCategoryListHeaderTemplate" or
-                category.Header and "LootReserveCategoryListSubheaderTemplate" or
-                "LootReserveCategoryListButtonTemplate");
+                    category.Separator and "LootReserveCategoryListSeparatorTemplate" or
+                            category.Children and "LootReserveCategoryListHeaderTemplate" or
+                            category.Header and "LootReserveCategoryListSubheaderTemplate" or
+                            "LootReserveCategoryListButtonTemplate");
 
             if #list.Frames == 0 then
                 frame:SetPoint("TOPLEFT", list, "TOPLEFT");
@@ -278,7 +282,9 @@ function LootReserve.Server.LootEdit:UpdateCategories()
                 frame:EnableMouse(false);
             else
                 frame:RegisterForClicks("LeftButtonDown");
-                frame:SetScript("OnClick", function(frame) self:OnCategoryClick(frame); end);
+                frame:SetScript("OnClick", function(frame)
+                    self:OnCategoryClick(frame);
+                end);
             end
         end
     end
@@ -334,8 +340,8 @@ function LootReserve.Server.LootEdit:OnCategoryClick(button)
     -- Don't allow deselecting the current selected category
     if not button:GetChecked() then
         button:SetChecked(true);
-        return;
-    end;
+        return ;
+    end ;
 
     -- Toggle off all the other checkbuttons
     for _, b in pairs(self.Window.Categories.Scroll.Container.Frames) do

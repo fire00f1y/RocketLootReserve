@@ -13,50 +13,42 @@ LootReserve.EventFrame:Show();
 
 LootReserve.ItemCache = LibStub("ItemCache");
 
-LootReserveCharacterSave =
-{
-    Client =
-    {
+LootReserveCharacterSave = {
+    Client = {
         CharacterFavorites = nil,
     },
-    Server =
-    {
+    Server = {
         CurrentSession = nil,
-        RequestedRoll  = nil,
-        RollHistory    = nil,
-        RecentLoot     = nil,
+        RequestedRoll = nil,
+        RollHistory = nil,
+        RecentLoot = nil,
     },
 };
-LootReserveGlobalSave =
-{
-    Client =
-    {
-        Settings        = nil,
+LootReserveGlobalSave = {
+    Client = {
+        Settings = nil,
         GlobalFavorites = nil,
     },
-    Server =
-    {
+    Server = {
         NewSessionSettings = nil,
-        Settings           = nil,
-        GlobalProfile      = nil,
+        Settings = nil,
+        GlobalProfile = nil,
     },
 };
 
-StaticPopupDialogs["LOOTRESERVE_GENERIC_ERROR"] =
-{
-    text         = "%s",
-    button1      = CLOSE,
-    timeout      = 0,
-    whileDead    = 1,
+StaticPopupDialogs["LOOTRESERVE_GENERIC_ERROR"] = {
+    text = "%s",
+    button1 = CLOSE,
+    timeout = 0,
+    whileDead = 1,
     hideOnEscape = 1,
 };
 
-LOOTRESERVE_BACKDROP_BLACK_4 =
-{
-    bgFile   = "Interface\\DialogFrame\\UI-DialogBox-Background",
+LOOTRESERVE_BACKDROP_BLACK_4 = {
+    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
     edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
     edgeSize = 16,
-    insets   = { left = 4, right = 4, top = 4, bottom = 4 },
+    insets = { left = 4, right = 4, top = 4, bottom = 4 },
 };
 
 SLASH_LOOTRESERVE1 = "/lootreserve";
@@ -90,7 +82,7 @@ function LootReserve:ToggleServerWindow(state, rolls)
             end);
         end
         self:PrintMessage("Host window will %s once you're out of combat", state and "open" or "close");
-        return;
+        return ;
     end
 
     if rolls then
@@ -185,7 +177,7 @@ function LootReserve:RegisterEvent(...)
     local handler = select(params, ...);
     if type(handler) ~= "function" then
         error("LootReserve:RegisterEvent: The last passed parameter must be the handler function");
-        return;
+        return ;
     end
 
     for i = 1, params - 1 do
@@ -203,7 +195,7 @@ end
 function LootReserve:OpenMenu(menu, menuContainer, anchor)
     if UIDROPDOWNMENU_OPEN_MENU == menuContainer then
         CloseMenus();
-        return;
+        return ;
     end
 
     local function FixMenu(menu)
@@ -240,9 +232,9 @@ function LootReserve:OpenSubMenu(...)
         local arg1 = select(submenu, ...);
         local opened = false;
         for i = 1, UIDROPDOWNMENU_MAXBUTTONS do
-            local button = _G["DropDownList"..submenu.."Button"..i];
+            local button = _G["DropDownList" .. submenu .. "Button" .. i];
             if button and button.arg1 == arg1 then
-                local arrow = _G[button:GetName().."ExpandArrow"];
+                local arrow = _G[button:GetName() .. "ExpandArrow"];
                 if arrow then
                     arrow:Click();
                     opened = true;
@@ -280,7 +272,9 @@ function LootReserve:SendChatMessage(text, channel, target)
     if channel == "PARTY" and not IsInGroup() then
         channel, target = "WHISPER", LootReserve:Me();
     end
-    if target and not LootReserve:IsPlayerOnline(target) then return; end
+    if target and not LootReserve:IsPlayerOnline(target) then
+        return ;
+    end
     local function Send(text)
         if #text > 0 then
             if ChatThrottleLib then
@@ -532,13 +526,13 @@ end
 function LootReserve:ColoredPlayer(player, class)
     local name, realm = strsplit("-", player);
     return realm and format("|c%s%s|r|c%s-%s|r", GetPlayerClassColor(player, false, class), name, GetPlayerClassColor(player, true, class), realm)
-                  or format("|c%s%s|r",          GetPlayerClassColor(player, false, class), player);
+            or format("|c%s%s|r", GetPlayerClassColor(player, false, class), player);
 end
 
 function LootReserve:ForEachRaider(func)
     if not IsInGroup() then
         local className, classFilename = UnitClass("player");
-        local raceName,  raceFilename  = UnitRace("player");
+        local raceName, raceFilename = UnitRace("player");
         return func(self:Me(), 0, 1, UnitLevel("player"), className, classFilename, nil, true, UnitIsDead("player"), nil, nil, nil, "player");
     end
 
@@ -551,47 +545,46 @@ function LootReserve:ForEachRaider(func)
                 return result, a, b;
             end
         else
-            break;
+            break ;
         end
     end
 end
 
-local charSimplifications =
-{
-    ["a"  ] = "[ÀÁÂÃÄÅàáâãäåĀāĂăĄąǍǎǞǟǠǡǺǻȀȁȂȃɐɑɒ]",
-    ["ae" ] = "[ÆæǢǣǼǽ]",
-    ["b"  ] = "[ƀƁƂƃɓʙ]",
-    ["c"  ] = "[ÇçĆćĈĉĊċČčƇƈɔɕʗ]",
-    ["d"  ] = "[ĎďĐđƉƊƋƌɖɗ]",
-    ["dz" ] = "[ǄǅǆǱǲǳʣʥ]",
-    ["e"  ] = "[ÈÉÊËèéêëĒēĔĕĖėĘęĚěƎƐǝȄȅȆȇɘəɚɛɜɝɞʚ]",
+local charSimplifications = {
+    ["a"] = "[ÀÁÂÃÄÅàáâãäåĀāĂăĄąǍǎǞǟǠǡǺǻȀȁȂȃɐɑɒ]",
+    ["ae"] = "[ÆæǢǣǼǽ]",
+    ["b"] = "[ƀƁƂƃɓʙ]",
+    ["c"] = "[ÇçĆćĈĉĊċČčƇƈɔɕʗ]",
+    ["d"] = "[ĎďĐđƉƊƋƌɖɗ]",
+    ["dz"] = "[ǄǅǆǱǲǳʣʥ]",
+    ["e"] = "[ÈÉÊËèéêëĒēĔĕĖėĘęĚěƎƐǝȄȅȆȇɘəɚɛɜɝɞʚ]",
     ["eth"] = "[ð]",
-    ["f"  ] = "[Ƒƒɟ]",
-    ["g"  ] = "[ĜĝĞğĠġĢģƓǤǥǦǧǴǵɠɡɢʛ]",
-    ["h"  ] = "[ĤĥĦħɥɦɧʜ]",
-    ["i"  ] = "[ÌÍÎÏìíîïĨĩĪīĬĭĮįİıƗǏǐȈȉȊȋɨɩɪ]",
-    ["ij" ] = "[Ĳĳ]",
-    ["j"  ] = "[Ĵĵǰʄʝ]",
-    ["k"  ] = "[ĶķĸƘƙǨǩʞ]",
-    ["l"  ] = "[ĹĺĻļĽľĿŀŁłƚɫɬɭʟ]",
-    ["lj" ] = "[Ǉǈǉ]",
-    ["m"  ] = "[Ɯɯɰɱ]",
-    ["n"  ] = "[ÑñŃńŅņŇňŉŊŋƝƞɲɳɴ]",
-    ["nj" ] = "[Ǌǋǌ]",
-    ["o"  ] = "[ÒÓÔÕÖØòóôõöøŌōŎŏŐőƆƟƠơǑǒǪǫǬǭǾǿȌȍȎȏɵ]",
-    ["oe" ] = "[Œœɶ]",
-    ["oi" ] = "[Ƣƣ]",
-    ["p"  ] = "[ÞþƤƥ]",
-    ["q"  ] = "[ʠ]",
-    ["r"  ] = "[ŔŕŖŗŘřƦȐȑȒȓɹɺɻɼɽɾɿʀʁ]",
-    ["s"  ] = "[ŚśŜŝŞşŠšſʂ]",
-    ["ss" ] = "[ß]",
-    ["t"  ] = "[ŢţŤťŦŧƫƬƭƮʇʈ]",
-    ["u"  ] = "[ÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųƯưǓǔǕǖǗǘǙǚǛǜȔȕȖȗʉʊ]",
-    ["v"  ] = "[Ʋʋʌ]",
-    ["w"  ] = "[Ŵŵʍ]",
-    ["y"  ] = "[ÝýÿŶŷŸƳƴʎʏ]",
-    ["z"  ] = "[ŹźŻżŽžƵƶʐʑ]",
+    ["f"] = "[Ƒƒɟ]",
+    ["g"] = "[ĜĝĞğĠġĢģƓǤǥǦǧǴǵɠɡɢʛ]",
+    ["h"] = "[ĤĥĦħɥɦɧʜ]",
+    ["i"] = "[ÌÍÎÏìíîïĨĩĪīĬĭĮįİıƗǏǐȈȉȊȋɨɩɪ]",
+    ["ij"] = "[Ĳĳ]",
+    ["j"] = "[Ĵĵǰʄʝ]",
+    ["k"] = "[ĶķĸƘƙǨǩʞ]",
+    ["l"] = "[ĹĺĻļĽľĿŀŁłƚɫɬɭʟ]",
+    ["lj"] = "[Ǉǈǉ]",
+    ["m"] = "[Ɯɯɰɱ]",
+    ["n"] = "[ÑñŃńŅņŇňŉŊŋƝƞɲɳɴ]",
+    ["nj"] = "[Ǌǋǌ]",
+    ["o"] = "[ÒÓÔÕÖØòóôõöøŌōŎŏŐőƆƟƠơǑǒǪǫǬǭǾǿȌȍȎȏɵ]",
+    ["oe"] = "[Œœɶ]",
+    ["oi"] = "[Ƣƣ]",
+    ["p"] = "[ÞþƤƥ]",
+    ["q"] = "[ʠ]",
+    ["r"] = "[ŔŕŖŗŘřƦȐȑȒȓɹɺɻɼɽɾɿʀʁ]",
+    ["s"] = "[ŚśŜŝŞşŠšſʂ]",
+    ["ss"] = "[ß]",
+    ["t"] = "[ŢţŤťŦŧƫƬƭƮʇʈ]",
+    ["u"] = "[ÙÚÛÜùúûüŨũŪūŬŭŮůŰűŲųƯưǓǔǕǖǗǘǙǚǛǜȔȕȖȗʉʊ]",
+    ["v"] = "[Ʋʋʌ]",
+    ["w"] = "[Ŵŵʍ]",
+    ["y"] = "[ÝýÿŶŷŸƳƴʎʏ]",
+    ["z"] = "[ŹźŻżŽžƵƶʐʑ]",
 };
 
 local simplificationMapping = { }
@@ -633,7 +626,9 @@ end
 
 function LootReserve:GetNumGroupMembers(func)
     local count = 0;
-    self:ForEachRaider(function() count = count + 1; end);
+    self:ForEachRaider(function()
+        count = count + 1;
+    end);
     return count;
 end
 
@@ -657,7 +652,7 @@ function LootReserve:GetTradeableItemCount(item)
             for slot = 1, GetContainerNumSlots(bag) do
                 local _, quantity, _, _, _, _, bagItem = GetContainerItemInfo(bag, slot);
                 if bagItem then
-                    table.insert(bagCache, {bag = bag, slot = slot, item = LootReserve.ItemCache:Item(bagItem), quantity = quantity})
+                    table.insert(bagCache, { bag = bag, slot = slot, item = LootReserve.ItemCache:Item(bagItem), quantity = quantity })
                 end
             end
         end
@@ -739,18 +734,20 @@ end
 
 function LootReserve:GetItemDescription(itemID)
     local item = LootReserve.ItemCache:Item(itemID);
-    if not item or not item:GetInfo() then return; end
+    if not item or not item:GetInfo() then
+        return ;
+    end
     local name, _, _, _, _, itemType, itemSubType, _, equipLoc, _, _, _, _, bindType = item:GetInfo();
     local skillRequired, skillLevelRequired = item:GetSkillRequired();
     local itemText = "";
     if item:IsUnique() then
         itemText = ITEM_UNIQUE .. " " .. itemText
     end
-    
+
     if skillRequired then
         itemText = itemText .. skillLevelRequired .. " " .. skillRequired .. " "
     end
-    
+
     if LootReserve.Constants.RedundantSubTypes[itemSubType] then
         itemText = LootReserve.Constants.RedundantSubTypes[itemSubType];
     elseif itemType == ARMOR then
@@ -778,13 +775,13 @@ function LootReserve:GetItemDescription(itemID)
             if itemSubType == "Junk" or itemSubType == "Other" then
                 itemText = itemText .. itemType;
             else
-               itemText = itemText .. itemSubType;
+                itemText = itemText .. itemSubType;
             end
         end
     else
         itemText = itemText .. itemType;
     end
-    
+
     if bindType == LE_ITEM_BIND_ON_ACQUIRE then
         -- itemText = itemText .. "  (BoP)";
     elseif bindType == LE_ITEM_BIND_ON_EQUIP then
@@ -792,7 +789,7 @@ function LootReserve:GetItemDescription(itemID)
     elseif itemText == LE_ITEM_BIND_ON_USE then
         itemText = itemText .. "  (BoU)";
     end
-    
+
     return itemText;
 end
 
@@ -800,7 +797,8 @@ function LootReserve:IsLootingItem(item)
     item = LootReserve.ItemCache:Item(item);
     for i = 1, GetNumLootItems() do
         local itemLink = GetLootSlotLink(i);
-        if itemLink and itemLink:find"item:%d" then -- GetLootSlotLink() sometimes returns "|Hitem:::::::::70:::::::::[]"
+        if itemLink and itemLink:find "item:%d" then
+            -- GetLootSlotLink() sometimes returns "|Hitem:::::::::70:::::::::[]"
             local lootItem = LootReserve.ItemCache:Item(itemLink);
             if lootItem and lootItem:GetID() == item:GetID() then
                 return i;
@@ -813,7 +811,8 @@ function LootReserve:TransformSearchText(text)
     text = self:StringTrim(text, "[%s%[%]]");
     text = text:upper();
     text = text:gsub("`", "'"):gsub("´", "'"); -- For whatever reason [`´] doesn't work
-    if not tonumber(text) then -- allow for item ids
+    if not tonumber(text) then
+        -- allow for item ids
         text = text:gsub("%A", "");
     end
     return text;
@@ -825,7 +824,7 @@ function LootReserve:StringTrim(str, chars)
 end
 
 function LootReserve:FormatToRegexp(fmt)
-    return fmt:gsub("%d+%$",""):gsub("%(", "%%("):gsub("%)", "%%)"):gsub("%%s", "(.+)"):gsub("%%d", "(%%d+)");
+    return fmt:gsub("%d+%$", ""):gsub("%(", "%%("):gsub("%)", "%%)"):gsub("%%s", "(.+)"):gsub("%%d", "(%%d+)");
 end
 
 function LootReserve:Deepcopy(orig)
@@ -926,29 +925,28 @@ end
 function LootReserve:MakeMenuSeparator()
     return
     {
-        text              = "",
-        hasArrow          = false,
-        dist              = 0,
-        isTitle           = true,
-        isUninteractable  = true,
-        notCheckable      = true,
-        iconOnly          = true,
-        icon              = "Interface\\Common\\UI-TooltipDivider-Transparent",
-        tCoordLeft        = 0,
-        tCoordRight       = 1,
-        tCoordTop         = 0,
-        tCoordBottom      = 1,
-        tSizeX            = 0,
-        tSizeY            = 8,
+        text = "",
+        hasArrow = false,
+        dist = 0,
+        isTitle = true,
+        isUninteractable = true,
+        notCheckable = true,
+        iconOnly = true,
+        icon = "Interface\\Common\\UI-TooltipDivider-Transparent",
+        tCoordLeft = 0,
+        tCoordRight = 1,
+        tCoordTop = 0,
+        tCoordBottom = 1,
+        tSizeX = 0,
+        tSizeY = 8,
         tFitDropDownSizeX = true,
-        iconInfo =
-        {
-            tCoordLeft        = 0,
-            tCoordRight       = 1,
-            tCoordTop         = 0,
-            tCoordBottom      = 1,
-            tSizeX            = 0,
-            tSizeY            = 8,
+        iconInfo = {
+            tCoordLeft = 0,
+            tCoordRight = 1,
+            tCoordTop = 0,
+            tCoordBottom = 1,
+            tSizeX = 0,
+            tSizeY = 8,
             tFitDropDownSizeX = true
         },
     };
@@ -963,14 +961,16 @@ function LootReserve:RepeatedTable(element, count)
 end
 
 function LootReserve:FormatPlayersText(players, colorFunc)
-    colorFunc = colorFunc or function(...) return ...; end
+    colorFunc = colorFunc or function(...)
+        return ...;
+    end
 
     local playersSorted = { };
     local playerNames = { };
     for _, player in ipairs(players) do
         if not playerNames[player] then
-           table.insert(playersSorted, player);
-           playerNames[player] = true;
+            table.insert(playersSorted, player);
+            playerNames[player] = true;
         end
     end
 
@@ -982,11 +982,15 @@ function LootReserve:FormatPlayersText(players, colorFunc)
 end
 
 function LootReserve:FormatPlayersTextColored(players, colorFunc)
-    return self:FormatPlayersText(players, function(...) return self:ColoredPlayer(...); end);
+    return self:FormatPlayersText(players, function(...)
+        return self:ColoredPlayer(...);
+    end);
 end
 
 local function FormatReservesText(players, excludePlayer, colorFunc)
-    colorFunc = colorFunc or function(...) return ...; end
+    colorFunc = colorFunc or function(...)
+        return ...;
+    end
 
     local reservesCount = { };
     for _, player in ipairs(players) do
@@ -1013,7 +1017,9 @@ function LootReserve:FormatReservesText(players, excludePlayer)
 end
 
 function LootReserve:FormatReservesTextColored(players, excludePlayer)
-    return FormatReservesText(players, excludePlayer, function(...) return self:ColoredPlayer(...); end);
+    return FormatReservesText(players, excludePlayer, function(...)
+        return self:ColoredPlayer(...);
+    end);
 end
 
 function LootReserve:GetCategoriesText(categories, shortName, delimiter)
@@ -1045,7 +1051,9 @@ function LootReserve:GetReservesData(players, me)
 end
 
 function LootReserve:GetReservesDataColored(players, me)
-    return GetReservesData(players, me, function(...) return self:ColoredPlayer(...); end);
+    return GetReservesData(players, me, function(...)
+        return self:ColoredPlayer(...);
+    end);
 end
 
 local function GetReservesString(server, isUpdate, link, reservesText, myReserves, uniqueReservers, reserves)
@@ -1065,27 +1073,27 @@ local function GetReservesString(server, isUpdate, link, reservesText, myReserve
     if uniqueReservers <= 1 then
         if myReserves > 0 then
             return format("You are%s%s reserving %s%s.%s",
-                isUpdate and " now" or "",
-                blind and "" or " the only player",
-                link,
-                (isUpdate or blind) and "" or " thus far",
-                multireserve > 1 and format(" You have %d %s on this item.", myReserves, myReserves == 1 and "reserve" or "reserves") or "");
+                    isUpdate and " now" or "",
+                    blind and "" or " the only player",
+                    link,
+                    (isUpdate or blind) and "" or " thus far",
+                    multireserve > 1 and format(" You have %d %s on this item.", myReserves, myReserves == 1 and "reserve" or "reserves") or "");
         else
-           return "";
+            return "";
         end
     elseif myReserves > 0 then
         local otherReserves = reserves - myReserves;
         local otherReservers = uniqueReservers - 1;
         return format("There %s%s %d %s for %s: %s.",
-            otherReserves == 1 and "is" or "are",
-            isUpdate and " now" or "",
-            otherReserves,
-            multireserve > 1 and format("%s by %d %s", otherReserves == 1 and "other reserve" or "other reserves",
-                                                       otherReservers,
-                                                       otherReservers == 1 and "player" or "players")
-                             or format("%s", otherReserves == 1 and "other contender" or "other contenders"),
-            link,
-            reservesText);
+                otherReserves == 1 and "is" or "are",
+                isUpdate and " now" or "",
+                otherReserves,
+                multireserve > 1 and format("%s by %d %s", otherReserves == 1 and "other reserve" or "other reserves",
+                        otherReservers,
+                        otherReservers == 1 and "player" or "players")
+                        or format("%s", otherReserves == 1 and "other contender" or "other contenders"),
+                link,
+                reservesText);
     else
         return "";
     end

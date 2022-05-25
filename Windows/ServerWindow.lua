@@ -1,7 +1,9 @@
 local LibCustomGlow = LibStub("LibCustomGlow-1.0");
 
 function LootReserve.Server:UpdateReserveListRolls(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -67,7 +69,9 @@ function LootReserve.Server:UpdateReserveListRolls(lockdown)
 end
 
 function LootReserve.Server:UpdateReserveListButtons(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -89,7 +93,9 @@ function LootReserve.Server:UpdateReserveListButtons(lockdown)
 end
 
 function LootReserve.Server:UpdateReserveList(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -109,7 +115,7 @@ function LootReserve.Server:UpdateReserveList(lockdown)
     end
 
     local doneReserving = 0;
-    local memberCount   = 0;
+    local memberCount = 0;
     if self.CurrentSession then
         for _, member in pairs(self.CurrentSession.Members) do
             memberCount = memberCount + 1;
@@ -124,7 +130,7 @@ function LootReserve.Server:UpdateReserveList(lockdown)
     end
 
     if not self.CurrentSession then
-        return;
+        return ;
     end
 
     local function createFrame(item, reserve)
@@ -190,7 +196,9 @@ function LootReserve.Server:UpdateReserveList(lockdown)
             end
             local unit = LootReserve:GetGroupUnitID(player);
             local button = frame.ReservesFrame.Players[i];
-            if button.init then button:init(); end
+            if button.init then
+                button:init();
+            end
             button:Show();
             button.Player = player;
 
@@ -235,7 +243,7 @@ function LootReserve.Server:UpdateReserveList(lockdown)
         if string.find(item:GetSearchName(), filter, 1, true) then
             return true;
         end
-        
+
         if reserve then
             for _, player in pairs(reserve.Players) do
                 if string.find(LootReserve:SimplifyName(player):upper(), filter, 1, true) then
@@ -310,11 +318,17 @@ function LootReserve.Server:UpdateReserveList(lockdown)
     end
 
     local sorting = self.Settings.ReservesSorting;
-        if sorting == LootReserve.Constants.ReservesSorting.ByTime   then sorting = getSortingTime;
-    elseif sorting == LootReserve.Constants.ReservesSorting.ByName   then sorting = getSortingName;
-    elseif sorting == LootReserve.Constants.ReservesSorting.BySource then sorting = getSortingSource;
-    elseif sorting == LootReserve.Constants.ReservesSorting.ByLooter then sorting = getSortingLooter;
-    else sorting = nil; end
+    if sorting == LootReserve.Constants.ReservesSorting.ByTime then
+        sorting = getSortingTime;
+    elseif sorting == LootReserve.Constants.ReservesSorting.ByName then
+        sorting = getSortingName;
+    elseif sorting == LootReserve.Constants.ReservesSorting.BySource then
+        sorting = getSortingSource;
+    elseif sorting == LootReserve.Constants.ReservesSorting.ByLooter then
+        sorting = getSortingLooter;
+    else
+        sorting = nil;
+    end
 
     local function sorter(a, b)
         if sorting then
@@ -344,7 +358,7 @@ function LootReserve.Server:UpdateReserveList(lockdown)
                 if reward:IsCached() then
                     if item:IsCached() and matchesFilter(reward, nil, filter) then
                         createFrame(item, reserve, true);
-                        break;
+                        break ;
                     end
                 else
                     table.insert(missing, reward);
@@ -375,7 +389,9 @@ function LootReserve.Server:UpdateReserveList(lockdown)
 end
 
 function LootReserve.Server:UpdateRollListRolls(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -439,7 +455,9 @@ function LootReserve.Server:UpdateRollListRolls(lockdown)
 end
 
 function LootReserve.Server:UpdateRollListButtons(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -459,7 +477,9 @@ function LootReserve.Server:UpdateRollListButtons(lockdown)
 end
 
 function LootReserve.Server:UpdateRollList(lockdown)
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     lockdown = lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames;
 
@@ -497,7 +517,7 @@ function LootReserve.Server:UpdateRollList(lockdown)
                     list.HistoryShowMore:SetPoint("TOPRIGHT", list, "TOPRIGHT", 0, -list.ContentHeight);
                     list.ContentHeight = list.ContentHeight + list.HistoryShowMore:GetHeight();
                 end
-                return;
+                return ;
             end
         end
 
@@ -524,9 +544,9 @@ function LootReserve.Server:UpdateRollList(lockdown)
             frame.RequestRollButton:SetWidth(frame.RequestRollButton:IsShown() and 32 or 0.00001);
             frame.ItemFrame.Icon:SetTexture(texture);
             frame.ItemFrame.Name:SetText((link or name or "|cFFFF4000Loading...|r"):gsub("[%[%]]", ""));
-            
+
             local tradeableItemCount = LootReserve:GetTradeableItemCount(item)
-            
+
             if frame.Roll.Winners and #frame.Roll.Winners == 1 then
                 local winner = frame.Roll.Winners[1];
                 if LootReserve:IsLootingItem(item) then
@@ -587,7 +607,9 @@ function LootReserve.Server:UpdateRollList(lockdown)
                 end
                 local unit = LootReserve:GetGroupUnitID(player);
                 local button = frame.ReservesFrame.Players[last];
-                if button.init then button:init(); end
+                if button.init then
+                    button:init();
+                end
                 button:Show();
                 button.Player = player;
                 button.RollNumber = rollNumber;
@@ -610,21 +632,25 @@ function LootReserve.Server:UpdateRollList(lockdown)
                     button:SetAttribute("unit", nil);
                 end
             end
-            
+
             frame.ItemFrame.Icon:SetScript("OnMouseUp", function(e, btn)
                 if not LootReserve:IsLootingItem(item) and LootReserve:GetTradeableItemCount(item) < 1 then
-                    return;
+                    return ;
                 end
                 local unit, player;
                 if btn == "LeftButton" then
-                    if not frame.Roll.Winners or #frame.Roll.Winners > 1 then return; end
+                    if not frame.Roll.Winners or #frame.Roll.Winners > 1 then
+                        return ;
+                    end
                     player = frame.Roll.Winners[1];
                     unit = LootReserve:GetGroupUnitID(player);
                 else
                     unit = UnitExists("target") and UnitIsPlayer("target") and "target" or UnitExists("npc") and "npc" or "player";
                 end
-                if not unit then return; end
-                
+                if not unit then
+                    return ;
+                end
+
                 if LootReserve:IsLootingItem(item) then
                     LootReserve.Server:MasterLootItem(item, player or LootReserve:Me(), multipleWinners)
                 else
@@ -634,10 +660,12 @@ function LootReserve.Server:UpdateRollList(lockdown)
                             local itemLink = select(7, GetContainerItemInfo(b, s));
                             if itemLink and LootReserve.ItemCache:Item(itemLink) == item and LootReserve:IsTradeableItem(b, s) then
                                 bag, slot = b, s;
-                                break;
+                                break ;
                             end
                         end
-                        if bag or slot then break; end
+                        if bag or slot then
+                            break ;
+                        end
                     end
                     if bag and slot then
                         if TradeFrame:IsShown() and UnitIsUnit(unit, "npc") then
@@ -694,7 +722,7 @@ function LootReserve.Server:UpdateRollList(lockdown)
         if string.find(item:GetSearchName(), filter, 1, true) then
             return true;
         end
-        
+
         if roll then
             for player in pairs(roll.Players) do
                 if string.find(LootReserve:SimplifyName(player):upper(), filter, 1, true) then
@@ -709,14 +737,14 @@ function LootReserve.Server:UpdateRollList(lockdown)
     createFrame();
     if self.RequestedRoll then
         --if not filter or matchesFilter(self.RequestedRoll.Item, self.RequestedRoll, filter) then
-            createFrame(self.RequestedRoll.Item, self.RequestedRoll, false);
+        createFrame(self.RequestedRoll.Item, self.RequestedRoll, false);
         --end
     end
     local missing = { };
     local itemsVisible = 0;
     for i = #self.RollHistory, 1, -1 do
         if itemsVisible > self.RollHistoryDisplayLimit then
-            break;
+            break ;
         end
         local match = false;
         local roll = self.RollHistory[i];
@@ -748,7 +776,7 @@ function LootReserve.Server:UpdateRollList(lockdown)
                     if item:IsCached() and matchesFilter(reward, nil, filter) then
                         createFrame(item, roll, true);
                         itemsVisible = itemsVisible + 1;
-                        break;
+                        break ;
                     end
                 else
                     table.insert(missing, reward);
@@ -778,7 +806,7 @@ function LootReserve.Server:UpdateRollList(lockdown)
                 self:UpdateRollList();
             end);
         end
-        self.PendingRollListUpdate:SetSpeed(math.ceil(#missing/LootReserve.ItemSearch.BatchFrames));
+        self.PendingRollListUpdate:SetSpeed(math.ceil(#missing / LootReserve.ItemSearch.BatchFrames));
     end
 
     list:GetParent():UpdateScrollChildRect();
@@ -848,7 +876,7 @@ function LootReserve.Server:RefreshWindowTab(lockdown)
     for i, panel in ipairs(self.Window.Panels) do
         if panel:IsShown() or panel.Lockdown and panel.Lockdown:IsShown() then
             self:SetWindowTab(i, lockdown or InCombatLockdown() or not self.Settings.UseUnitFrames);
-            return;
+            return ;
         end
     end
 end
@@ -914,21 +942,20 @@ function LootReserve.Server:OnWindowLoad(window)
     end);
 end
 
-local activeSessionChanges =
-{
-    ButtonStartSession  = "Hide",
-    ButtonStopSession   = "Show",
-    ButtonResetSession  = "Hide",
-    LabelRaid           = "Label",
-    DropDownRaid        = "DropDown",
-    LabelCount          = "Label",
-    EditBoxCount        = "Disable",
-    LabelMultireserve   = "Label",
+local activeSessionChanges = {
+    ButtonStartSession = "Hide",
+    ButtonStopSession = "Show",
+    ButtonResetSession = "Hide",
+    LabelRaid = "Label",
+    DropDownRaid = "DropDown",
+    LabelCount = "Label",
+    EditBoxCount = "Disable",
+    LabelMultireserve = "Label",
     EditBoxMultireserve = "Disable",
-    LabelDuration       = "Hide",
-    DropDownDuration    = "Hide",
-    ButtonLootEdit      = "Disable",
-    CheckButtonEquip    = "Checkbox",
+    LabelDuration = "Hide",
+    DropDownDuration = "Hide",
+    ButtonLootEdit = "Disable",
+    CheckButtonEquip = "Checkbox",
 
     Apply = function(self, panel, active)
         for k, action in pairs(self) do
@@ -1011,7 +1038,7 @@ function LootReserve.Server:RollEnded()
                 for _, frame in ipairs(list.Frames) do
                     if UIDROPDOWNMENU_OPEN_MENU == frame.Menu then
                         CloseMenus();
-                        return;
+                        return ;
                     end
                 end
             end
@@ -1042,10 +1069,14 @@ function LootReserve.Server:UpdateAddonUsers()
 end
 
 function LootReserve.Server:LoadNewSessionSettings()
-    if not self.Window:IsShown() then return; end
+    if not self.Window:IsShown() then
+        return ;
+    end
 
     local function setDropDownValue(dropDown, value)
-        if dropDown.init then dropDown:init(); end
+        if dropDown.init then
+            dropDown:init();
+        end
         ToggleDropDownMenu(nil, nil, dropDown);
         UIDropDownMenu_SetSelectedValue(dropDown, value);
         CloseMenus();

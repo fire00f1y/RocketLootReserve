@@ -17,13 +17,10 @@ ClassMask id
 12 - 2048 - Demon Hunter
 --]]
 
-LootReserve.Data =
-{
-    Categories =
-    {
+LootReserve.Data = {
+    Categories = {
         [-100] = {
-            Children =
-            {
+            Children = {
                 { Name = "My Reserves", Reserves = "my" },
                 { Name = "All Reserves", Reserves = "all" },
                 { Name = "|TInterface\\AddOns\\LootReserve\\Assets\\Textures\\FavoriteWhite:16:16:0:-1:32:32:7:25:2:20|t Favorites", Favorites = true },
@@ -33,8 +30,7 @@ LootReserve.Data =
         [-50] = {
             Name = "Custom",
             Custom = true,
-            Children =
-            {
+            Children = {
                 { Name = "Edited Items", Edited = true },
                 { Name = "Custom Items", Custom = true },
             },
@@ -44,12 +40,10 @@ LootReserve.Data =
             Name = "Molten Core",
             NameShort = "MC",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Lucifron",
-                    Loot =
-                    {
+                    Loot = {
                         16800, 16805, 16829, 16837, 16859, 16863, 0,
                         19145, 18872, 18875, 19146, 18870, 18861, 0,
                         17109, 19147, 18879, 0,
@@ -59,8 +53,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Magmadar",
-                    Loot =
-                    {
+                    Loot = {
                         16796, 16810, 16814, 16822, 16835, 16847, 16843, 16855, 16867, 0,
                         19136, 18823, 19144, 18829, 18824, 19143, 18861, 0,
                         18820, 18821, 17065, 0,
@@ -69,8 +62,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Gehennas",
-                    Loot =
-                    {
+                    Loot = {
                         16812, 16826, 16849, 16839, 16860, 16862, 0,
                         19145, 18872, 18875, 19146, 18870, 18861, 0,
                         19147, 18879, 0,
@@ -79,8 +71,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Garr",
-                    Loot =
-                    {
+                    Loot = {
                         18564, 0,
                         16795, 16808, 16813, 16821, 16834, 16846, 16842, 16854, 16866, 0,
                         19136, 18823, 19144, 18829, 18824, 19143, 18861, 0,
@@ -90,8 +81,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Baron Geddon",
-                    Loot =
-                    {
+                    Loot = {
                         18563, 0,
                         16797, 16807, 16836, 16844, 16856, 0,
                         19136, 18823, 19144, 18829, 18824, 19143, 18861, 0,
@@ -101,8 +91,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Shazzrah",
-                    Loot =
-                    {
+                    Loot = {
                         16801, 16803, 16811, 16824, 16831, 16852, 0,
                         19145, 18872, 18875, 19146, 18870, 18861, 0,
                         19147, 18879, 0,
@@ -111,8 +100,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Golemagg the Incinerator",
-                    Loot =
-                    {
+                    Loot = {
                         16798, 16809, 16815, 16820, 16833, 16845, 16841, 16853, 16865, 0,
                         19136, 18823, 19144, 18829, 18824, 19143, 18861, 0,
                         18820, 18821, 0,
@@ -122,8 +110,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Sulfuron Harbinger",
-                    Loot =
-                    {
+                    Loot = {
                         16816, 16823, 16848, 16868, 0,
                         19145, 18872, 18875, 19146, 18870, 18861, 0,
                         18879, 19147, 0,
@@ -132,8 +119,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Majordomo Executus",
-                    Loot =
-                    {
+                    Loot = {
                         18646, 18703, 0,
                         18809, 18808, 18810, 19139, 18812, 18806, 0,
                         18811, 19140, 0,
@@ -142,8 +128,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Ragnaros",
-                    Loot =
-                    {
+                    Loot = {
                         17204, 0,
                         16915, 16930, 16922, 16909, 16901, 16938, 16946, 16954, 16962, 0,
                         18817, 19137, 0,
@@ -155,8 +140,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         16802, 16806, 16817, 16827, 16828, 16851, 16838, 16858, 16864, 0,
                         16799, 16804, 16819, 16825, 16830, 16850, 16840, 16857, 16861, 0,
                         17011, 17010, 11382, 17012, 0,
@@ -165,8 +149,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Recipes",
-                    Loot =
-                    {
+                    Loot = {
                         18265, 21371, 0,
                         18252, 0,
                         18264, 0,
@@ -181,12 +164,10 @@ LootReserve.Data =
             Name = "Onyxia",
             NameShort = "Ony",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Onyxia",
-                    Loot =
-                    {
+                    Loot = {
                         16914, 16929, 16921, 16908, 16900, 16939, 16947, 16955, 16963, 0,
                         18705, 0,
                         18423, 18422, 0,
@@ -202,12 +183,10 @@ LootReserve.Data =
             Name = "Blackwing Lair",
             NameShort = "BWL",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Razorgore the Untamed",
-                    Loot =
-                    {
+                    Loot = {
                         16918, 16934, 16926, 16911, 16904, 16935, 16943, 16951, 16959, 0,
                         19337, 19336, 0,
                         19370, 19369, 0,
@@ -216,8 +195,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Vaelastrasz the Corrupt",
-                    Loot =
-                    {
+                    Loot = {
                         16818, 16933, 16925, 16910, 16903, 16936, 16944, 16952, 16960, 0,
                         19339, 19340, 0,
                         19372, 0,
@@ -227,8 +205,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Broodlord Lashlayer",
-                    Loot =
-                    {
+                    Loot = {
                         16912, 16927, 16919, 16906, 16898, 16941, 16949, 16957, 16965, 0,
                         19342, 19341, 0,
                         19374, 19373, 0,
@@ -238,8 +215,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Firemaw",
-                    Loot =
-                    {
+                    Loot = {
                         16913, 16928, 16920, 16907, 16899, 16940, 16948, 16956, 16964, 0,
                         19344, 19343, 0,
                         19400, 19399, 19401, 19396, 19402, 19394, 0,
@@ -249,8 +225,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Ebonroc",
-                    Loot =
-                    {
+                    Loot = {
                         16913, 16928, 16920, 16907, 16899, 16940, 16948, 16956, 16964, 0,
                         19345, 0,
                         19407, 19405, 19396, 19394, 0,
@@ -260,8 +235,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Flamegor",
-                    Loot =
-                    {
+                    Loot = {
                         16913, 16928, 16920, 16907, 16899, 16940, 16948, 16956, 16964, 0,
                         19430, 19396, 19433, 19394, 0,
                         19397, 19395, 19432, 19431, 0,
@@ -270,8 +244,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Chromaggus",
-                    Loot =
-                    {
+                    Loot = {
                         16932, 16924, 16917, 16832, 16902, 16937, 16945, 16953, 16961, 0,
                         19391, 19388, 19385, 19390, 19389, 19393, 19392, 19387, 0,
                         19386, 0,
@@ -280,8 +253,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Nefarian",
-                    Loot =
-                    {
+                    Loot = {
                         16916, 16931, 16923, 16905, 16897, 16942, 16950, 16958, 16966, 0,
                         19003, 19002, 0,
                         19375, 19381, 19380, 0,
@@ -294,8 +266,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         19438, 19437, 19439, 0,
                         19434, 19436, 0,
                         19435, 19362, 19358, 19354, 0,
@@ -308,12 +279,10 @@ LootReserve.Data =
             Name = "Zul'Gurub",
             NameShort = "ZG",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "High Priestess Jeklik",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         22716, 22720, 19928, 22718, 20262, 22715, 20265, 22714, 0,
                         22721, 19923, 19920, 22722, 0,
@@ -322,8 +291,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "High Priest Venoxis",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         22716, 22720, 19906, 22718, 19904, 22715, 22714, 0,
                         22721, 19905, 19907, 22722, 0,
@@ -332,8 +300,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "High Priestess Mar'li",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         20032, 22716, 22720, 22718, 19919, 22715, 22714, 0,
                         22721, 19930, 22722, 19925, 19871, 0,
@@ -342,8 +309,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Bloodlord Mandokir",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         22637, 0,
                         19895, 19877, 19869, 19878, 0,
@@ -355,40 +321,35 @@ LootReserve.Data =
                 { Name = "Edge of Madness", Header = true },
                 {
                     Name = " - Gri'lek",
-                    Loot =
-                    {
+                    Loot = {
                         19939, 0,
                         19961, 19962, 0,
                     },
                 },
                 {
                     Name = " - Hazza'rah",
-                    Loot =
-                    {
+                    Loot = {
                         19942, 0,
                         19967, 19968, 0,
                     },
                 },
                 {
                     Name = " - Renataki",
-                    Loot =
-                    {
+                    Loot = {
                         19940, 0,
                         19964, 19963, 0,
                     },
                 },
                 {
                     Name = " - Wushoolay",
-                    Loot =
-                    {
+                    Loot = {
                         19941, 0,
                         19965, 19993, 0,
                     },
                 },
                 {
                     Name = "High Priest Thekal",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         19897, 22716, 19899, 22720, 22718, 20260, 22715, 20266, 22714, 0,
                         22721, 19898, 22722, 0,
@@ -398,8 +359,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "High Priestess Arlokk",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         22716, 22720, 22718, 22715, 22714, 19913, 0,
                         22721, 22722, 19912, 0,
@@ -409,8 +369,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Jin'do the Hexxer",
-                    Loot =
-                    {
+                    Loot = {
                         19721, 19724, 19723, 19722, 19717, 19716, 19718, 19719, 19720, 0,
                         22637, 0,
                         19886, 19929, 19892, 19889, 19887, 19875, 19894, 0,
@@ -420,8 +379,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Hakkar",
-                    Loot =
-                    {
+                    Loot = {
                         19802, 0,
                         20257, 20264, 19855, 0,
                         19857, 19876, 19856, 0,
@@ -431,8 +389,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Gahz'ranka",
-                    Loot =
-                    {
+                    Loot = {
                         19945, 0,
                         19947, 0,
                         19944, 19946, 0,
@@ -442,8 +399,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         20259, 20261, 20263, 0,
                         20258, 19921, 19908, 0,
                         19707, 19708, 19709, 19710, 19711, 19712, 19713, 19714, 19715, 0,
@@ -456,12 +412,10 @@ LootReserve.Data =
             Name = "Ruins of Ahn'Qiraj",
             NameShort = "AQ20",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Kurinnaxx",
-                    Loot =
-                    {
+                    Loot = {
                         20885, 20889, 20888, 20884, 0,
                         21499, 21500, 21501, 21502, 21503, 0,
                         21498, 0,
@@ -469,8 +423,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "General Rajaxx",
-                    Loot =
-                    {
+                    Loot = {
                         20885, 20889, 20888, 20884, 0,
                         21496, 21810, 21493, 21494, 21497, 21495, 0,
                         21809, 0,
@@ -479,8 +432,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Moam",
-                    Loot =
-                    {
+                    Loot = {
                         20884, 20888, 20890, 20886, 0,
                         21472, 21468, 21469, 21455, 21474, 21467, 21476, 21475, 21479, 0,
                         21473, 21470, 21477, 0,
@@ -490,8 +442,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Buru the Gorger",
-                    Loot =
-                    {
+                    Loot = {
                         20890, 20886, 20885, 20889, 20888, 20884, 0,
                         21489, 21491, 21487, 21486, 21490, 0,
                         21488, 0,
@@ -500,8 +451,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Ayamiss the Hunter",
-                    Loot =
-                    {
+                    Loot = {
                         20890, 20886, 20885, 20889, 20888, 20884, 0,
                         21484, 21482, 21480, 21481, 21479, 0,
                         21483, 0,
@@ -510,8 +460,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Ossirian the Unscarred",
-                    Loot =
-                    {
+                    Loot = {
                         20890, 20886, 20888, 20884, 0,
                         21220, 0,
                         21461, 21464, 21462, 21458, 21454, 21463, 21453, 21457, 21460, 0,
@@ -522,8 +471,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         21804, 21803, 21805, 0,
                         21802, 21801, 21800, 0,
                         20873, 20869, 20866, 20870, 20868, 20871, 20867, 20872, 0,
@@ -534,15 +482,13 @@ LootReserve.Data =
                 },
                 {
                     Name = "Enchants",
-                    Loot =
-                    {
+                    Loot = {
                         20728, 20729, 20727, 20730, 20731, 20734, 20736, 0,
                     },
                 },
                 {
                     Name = "Class books",
-                    Loot =
-                    {
+                    Loot = {
                         21279, 21214, 21280, 21281, 21283, 21282, 21284, 21287, 21285, 21300, 21303, 21302, 21294, 21296, 21295, 21306, 21304, 21307, 21291, 21292, 21293, 21288, 21289, 21290, 21298, 21299, 21297, 0,
                     },
                 },
@@ -552,12 +498,10 @@ LootReserve.Data =
             Name = "Temple of Ahn'Qiraj",
             NameShort = "AQ40",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "The Prophet Skeram",
-                    Loot =
-                    {
+                    Loot = {
                         21698, 21708, 21705, 21699, 21704, 21814, 21706, 0,
                         21707, 21702, 21701, 21700, 0,
                         21703, 21128, 0,
@@ -567,8 +511,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Bug Trio",
-                    Loot =
-                    {
+                    Loot = {
                         21696, 21694, 21693, 21692, 0,
                         21697, 21695, 0,
                         21237, 21232, 0,
@@ -576,8 +519,7 @@ LootReserve.Data =
                 },
                 {
                     Name = " - Kri Killed Last",
-                    Loot =
-                    {
+                    Loot = {
                         21680, 0,
                         21681, 21685, 0,
                         21603, 0,
@@ -585,24 +527,21 @@ LootReserve.Data =
                 },
                 {
                     Name = " - Yauj Killed Last",
-                    Loot =
-                    {
+                    Loot = {
                         21686, 21682, 21684, 21683, 0,
                         21687, 0,
                     },
                 },
                 {
                     Name = " - Vem Killed Last",
-                    Loot =
-                    {
+                    Loot = {
                         21689, 21691, 21688, 0,
                         21690, 0,
                     },
                 },
                 {
                     Name = "Battleguard Sartura",
-                    Loot =
-                    {
+                    Loot = {
                         21676, 21648, 21671, 21669, 21672, 21675, 21668, 21667, 21674, 0,
                         21678, 21670, 0,
                         21666, 21673, 0,
@@ -611,8 +550,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Fankriss the Unyielding",
-                    Loot =
-                    {
+                    Loot = {
                         21663, 21665, 21645, 21651, 21652, 21639, 0,
                         21647, 21664, 21627, 0,
                         21650, 21635, 22396, 22402, 0,
@@ -621,8 +559,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Viscidus",
-                    Loot =
-                    {
+                    Loot = {
                         20928, 20932, 0,
                         21624, 21626, 21623, 0,
                         21625, 21677, 0,
@@ -632,8 +569,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Princess Huhuran",
-                    Loot =
-                    {
+                    Loot = {
                         20928, 20932, 0,
                         21619, 21617, 21618, 0,
                         21620, 21621, 0,
@@ -643,8 +579,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Twin Emperors",
-                    Loot =
-                    {
+                    Loot = {
                         20930, 20926, 0,
                         21600, 21604, 21609, 21602, 21605, 21607, 21599, 21606, 21598, 0,
                         21608, 21601, 0,
@@ -655,8 +590,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Ouro",
-                    Loot =
-                    {
+                    Loot = {
                         20931, 20927, 0,
                         21611, 21615, 0,
                         23558, 23570, 0,
@@ -666,8 +600,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "C'Thun",
-                    Loot =
-                    {
+                    Loot = {
                         20929, 20933, 0,
                         21221, 0,
                         22730, 21585, 21582, 21586, 21581, 0,
@@ -678,8 +611,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         21838, 21888, 21889, 0,
                         21836, 21891, 0,
                         21856, 21837, 0,
@@ -689,8 +621,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Scarabs",
-                    Loot =
-                    {
+                    Loot = {
                         20876, 20879, 20875, 20878, 20881, 20877, 20874, 20882, 0,
                         20864, 20861, 20863, 20862, 20859, 20865, 20860, 20858, 0,
                         21762, 21156, 0,
@@ -698,8 +629,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Enchants",
-                    Loot =
-                    {
+                    Loot = {
                         20728, 20729, 20727, 20730, 20731, 20734, 20736, 0,
                     },
                 },
@@ -709,12 +639,10 @@ LootReserve.Data =
             Name = "Naxxramas",
             NameShort = "Naxx",
             Expansion = 0,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Anub'Rekhan",
-                    Loot =
-                    {
+                    Loot = {
                         22369, 22362, 22355, 0,
                         22936, 0,
                         22939, 22935, 22938, 0,
@@ -724,8 +652,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Grand Widow Faerlina",
-                    Loot =
-                    {
+                    Loot = {
                         22369, 22362, 22355, 0,
                         22941, 22940, 0,
                         22943, 0,
@@ -735,8 +662,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Maexxna",
-                    Loot =
-                    {
+                    Loot = {
                         22371, 22364, 22357, 0,
                         23220, 0,
                         22947, 22954, 0,
@@ -747,8 +673,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Noth the Plaguebringer",
-                    Loot =
-                    {
+                    Loot = {
                         22370, 22363, 22356, 0,
                         23031, 23030, 23028, 0,
                         23029, 23005, 23006, 22816, 0,
@@ -757,8 +682,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Heigan the Unclean",
-                    Loot =
-                    {
+                    Loot = {
                         22370, 22363, 22356, 0,
                         23035, 23033, 23068, 23019, 0,
                         23036, 0,
@@ -767,8 +691,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Loatheb",
-                    Loot =
-                    {
+                    Loot = {
                         22366, 22359, 22352, 0,
                         23037, 23038, 23042, 0,
                         22800, 23039, 0,
@@ -778,8 +701,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Instructor Razuvious",
-                    Loot =
-                    {
+                    Loot = {
                         22372, 22365, 22358, 0,
                         23219, 0,
                         23017, 23018, 0,
@@ -789,8 +711,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Gothik the Harvester",
-                    Loot =
-                    {
+                    Loot = {
                         22372, 22365, 22358, 0,
                         23032, 23021, 23020, 23073, 0,
                         23023, 0,
@@ -799,8 +720,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "The Four Horsemen",
-                    Loot =
-                    {
+                    Loot = {
                         22351, 22350, 22349, 0,
                         23071, 0,
                         23025, 23027, 0,
@@ -811,8 +731,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Patchwerk",
-                    Loot =
-                    {
+                    Loot = {
                         22368, 22361, 22354, 0,
                         22960, 22961, 0,
                         22820, 22815, 22818, 0,
@@ -821,8 +740,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Grobbulus",
-                    Loot =
-                    {
+                    Loot = {
                         22368, 22361, 22354, 0,
                         22968, 22967, 0,
                         22803, 22988, 22810, 0,
@@ -831,8 +749,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Gluth",
-                    Loot =
-                    {
+                    Loot = {
                         22368, 22369, 22370, 22372, 22361, 22362, 22363, 22365, 22354, 22355, 22356, 22358, 0,
                         22983, 0,
                         22981, 0,
@@ -842,8 +759,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Thaddius",
-                    Loot =
-                    {
+                    Loot = {
                         22367, 22360, 22353, 0,
                         23070, 23000, 0,
                         23001, 0,
@@ -854,8 +770,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Sapphiron",
-                    Loot =
-                    {
+                    Loot = {
                         23549, 23548, 23545, 23547, 0,
                         23050, 23046, 23047, 23045, 23041, 23040, 0,
                         23049, 23048, 23043, 23242, 0,
@@ -863,8 +778,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Kel'Thuzad",
-                    Loot =
-                    {
+                    Loot = {
                         23061, 23062, 23063, 23060, 23064, 23067, 23065, 23066, 23059, 0,
                         22520, 0,
                         23057, 23053, 0,
@@ -874,8 +788,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         23069, 23226, 23663, 23664, 23665, 23667, 23666, 23668, 0,
                         23237, 0,
                         23238, 23044, 23221, 0,
@@ -890,12 +803,10 @@ LootReserve.Data =
             Name = "Karazhan",
             NameShort = "Kara",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Attumen the Huntsman",
-                    Loot =
-                    {
+                    Loot = {
                         28477, 28507, 28508, 28453, 28506, 28503, 28454, 28502, 28505, 0,
                         28510, 28509, 0,
                         28504, 0,
@@ -906,30 +817,26 @@ LootReserve.Data =
                 { Name = "Servant Quarters", Header = true },
                 {
                     Name = " - Rokad the Ravager",
-                    Loot =
-                    {
+                    Loot = {
                         30684, 30685, 30686, 30687, 0,
                     },
                 },
                 {
                     Name = " - Shadikith the Glider",
-                    Loot =
-                    {
+                    Loot = {
                         30680, 30681, 30682, 30683, 0,
                     },
                 },
                 {
                     Name = " - Hyakiss the Lurker",
-                    Loot =
-                    {
+                    Loot = {
                         30675, 30676, 30677, 30678, 0,
                     },
                 },
                 { Separator = true },
                 {
                     Name = "Moroes",
-                    Loot =
-                    {
+                    Loot = {
                         28565, 28545, 28567, 28569, 28566, 0,
                         28530, 28570, 28529, 28528, 0,
                         28568, 28525, 28524, 0,
@@ -938,8 +845,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Maiden of Virtue",
-                    Loot =
-                    {
+                    Loot = {
                         28515, 28517, 28511, 28521, 28514, 28520, 28519, 28512, 28518, 0,
                         28516, 0,
                         28522, 28523, 0,
@@ -947,8 +853,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Opera Event",
-                    Loot =
-                    {
+                    Loot = {
                         28594, 28591, 28589, 28593, 0,
                         28590, 0,
                         28592, 0,
@@ -956,16 +861,14 @@ LootReserve.Data =
                 },
                 {
                     Name = " - The Wizard of Oz",
-                    Loot =
-                    {
+                    Loot = {
                         28586, 28585, 0,
                         28588, 28587, 0,
                     },
                 },
                 {
                     Name = " - The Big Bad Wolf",
-                    Loot =
-                    {
+                    Loot = {
                         28583, 0,
                         28582, 0,
                         28581, 28584, 0,
@@ -973,8 +876,7 @@ LootReserve.Data =
                 },
                 {
                     Name = " - Romulo and Julianne",
-                    Loot =
-                    {
+                    Loot = {
                         28578, 0,
                         28579, 0,
                         28572, 28573, 0,
@@ -983,8 +885,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Nightbane",
-                    Loot =
-                    {
+                    Loot = {
                         28602, 28600, 28601, 28599, 28610, 28608, 28597, 0,
                         28603, 28609, 0,
                         28604, 28611, 28606, 0,
@@ -992,8 +893,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "The Curator",
-                    Loot =
-                    {
+                    Loot = {
                         29757, 29758, 29756, 0,
                         28612, 28647, 28631, 28621, 0,
                         28649, 0,
@@ -1002,8 +902,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Terestian Illhoof",
-                    Loot =
-                    {
+                    Loot = {
                         28654, 28652, 28655, 28656, 28662, 0,
                         28785, 28661, 28653, 28660, 0,
                         28658, 28657, 28659, 0,
@@ -1012,8 +911,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Shade of Aran",
-                    Loot =
-                    {
+                    Loot = {
                         28726, 28670, 28663, 28669, 28671, 28666, 0,
                         28727, 28674, 28672, 28675, 0,
                         28673, 28728, 0,
@@ -1022,8 +920,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Netherspite",
-                    Loot =
-                    {
+                    Loot = {
                         28744, 28742, 28732, 28741, 28735, 28740, 28733, 28743, 0,
                         28731, 28730, 0,
                         28734, 28729, 0,
@@ -1032,8 +929,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Chess Event",
-                    Loot =
-                    {
+                    Loot = {
                         28756, 28752, 28755, 28750, 28751, 28746, 28748, 28747, 0,
                         28753, 28745, 0,
                         28754, 28749, 0,
@@ -1041,8 +937,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Prince Malchezaar",
-                    Loot =
-                    {
+                    Loot = {
                         29760, 29761, 29759, 0,
                         28762, 28766, 28765, 28763, 28764, 28757, 0,
                         28770, 28771, 28767, 28773, 28768, 28772, 0,
@@ -1051,8 +946,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         30642, 30668, 30673, 30644, 30674, 30643, 30641, 0,
                         30666, 30667, 0,
                         21903, 21904, 0,
@@ -1067,12 +961,10 @@ LootReserve.Data =
             Name = "Gruul's Lair",
             NameShort = "Gruul",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "High King Maulgar",
-                    Loot =
-                    {
+                    Loot = {
                         29763, 29764, 29762, 0,
                         28799, 28796, 28801, 28795, 0,
                         28797, 0,
@@ -1081,8 +973,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Gruul the Dragonkiller",
-                    Loot =
-                    {
+                    Loot = {
                         29766, 29767, 29765, 0,
                         28804, 28803, 28828, 28810, 28827, 28824, 0,
                         28822, 28823, 28830, 0,
@@ -1095,12 +986,10 @@ LootReserve.Data =
             Name = "Magtheridon's Lair",
             NameShort = "Mag",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Magtheridon",
-                    Loot =
-                    {
+                    Loot = {
                         29754, 29753, 29755, 0,
                         32385, 0,
                         28780, 28777, 28776, 28778, 28779, 28775, 0,
@@ -1116,12 +1005,10 @@ LootReserve.Data =
             Name = "Serpentshrine Cavern",
             NameShort = "SSC",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Hydross the Unstable",
-                    Loot =
-                    {
+                    Loot = {
                         30664, 0,
                         30050, 30056, 32516, 30055, 30047, 30054, 30048, 30053, 0,
                         30052, 33055, 30629, 0,
@@ -1130,8 +1017,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "The Lurker Below",
-                    Loot =
-                    {
+                    Loot = {
                         30665, 0,
                         30064, 30067, 30062, 30060, 30066, 30065, 30057, 0,
                         30059, 30061, 33054, 0,
@@ -1140,8 +1026,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Leotheras the Blind",
-                    Loot =
-                    {
+                    Loot = {
                         30239, 30240, 30241, 0,
                         30092, 30097, 30091, 30096, 0,
                         30627, 0,
@@ -1150,8 +1035,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Fathom-Lord Karathress",
-                    Loot =
-                    {
+                    Loot = {
                         30663, 0,
                         30245, 30246, 30247, 0,
                         30100, 30101, 0,
@@ -1161,8 +1045,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Morogrim Tidewalker",
-                    Loot =
-                    {
+                    Loot = {
                         30720, 0,
                         30079, 30075, 30085, 30068, 30084, 30081, 0,
                         30008, 33058, 30098, 30083, 0,
@@ -1171,8 +1054,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Lady Vashj",
-                    Loot =
-                    {
+                    Loot = {
                         30242, 30243, 30244, 0,
                         30107, 30111, 30106, 30104, 30112, 30102, 0,
                         30109, 30110, 30621, 0,
@@ -1182,8 +1064,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         30027, 0,
                         30022, 30620, 0,
                         30023, 30025, 30021, 0,
@@ -1193,8 +1074,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Patterns",
-                    Loot =
-                    {
+                    Loot = {
                         30280, 30282, 30283, 30281, 0,
                         30308, 30304, 30305, 30307, 30306, 30301, 30303, 30302, 0,
                         30322, 30323, 30321, 30324, 0,
@@ -1206,12 +1086,10 @@ LootReserve.Data =
             Name = "The Eye",
             NameShort = "TK",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Al'ar",
-                    Loot =
-                    {
+                    Loot = {
                         30448, 30447, 0,
                         29918, 29947, 29921, 0,
                         29922, 29920, 29925, 0,
@@ -1220,8 +1098,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Void Reaver",
-                    Loot =
-                    {
+                    Loot = {
                         30450, 0,
                         30248, 30249, 30250, 0,
                         29986, 29984, 29985, 29983, 32515, 0,
@@ -1230,8 +1107,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "High Astromancer Solarian",
-                    Loot =
-                    {
+                    Loot = {
                         30449, 30446, 0,
                         29972, 29977, 29966, 29976, 29951, 29965, 29950, 32267, 0,
                         29982, 29981, 29962, 0,
@@ -1239,8 +1115,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Kael'thas Sunstrider",
-                    Loot =
-                    {
+                    Loot = {
                         30236, 30237, 30238, 0,
                         32405, 0,
                         29987, 29990, 29995, 29991, 29998, 0,
@@ -1252,8 +1127,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         30020, 30024, 30029, 30030, 30026, 0,
                         30028, 0,
                         30183, 0,
@@ -1262,8 +1136,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Patterns",
-                    Loot =
-                    {
+                    Loot = {
                         30280, 30282, 30283, 30281, 0,
                         30308, 30304, 30305, 30307, 30306, 30301, 30303, 30302, 0,
                         30322, 30323, 30321, 30324, 0,
@@ -1275,20 +1148,17 @@ LootReserve.Data =
             Name = "Battle for Mount Hyjal",
             NameShort = "Hyjal",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Rage Winterchill",
-                    Loot =
-                    {
+                    Loot = {
                         30870, 30871, 30868, 30863, 30873, 30869, 30864, 30862, 30866, 30861, 0,
                         30872, 30865, 0,
                     },
                 },
                 {
                     Name = "Anetheron",
-                    Loot =
-                    {
+                    Loot = {
                         30884, 30888, 30885, 30886, 30879, 30887, 30880, 30878, 0,
                         30882, 30883, 30881, 30874, 0,
                     },
@@ -1296,16 +1166,14 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Kaz'rogal",
-                    Loot =
-                    {
+                    Loot = {
                         30894, 30916, 30895, 30914, 30917, 30891, 30893, 30892, 30919, 30915, 0,
                         30918, 30889, 0,
                     },
                 },
                 {
                     Name = "Azgalor",
-                    Loot =
-                    {
+                    Loot = {
                         31092, 31094, 31093, 0,
                         30899, 30898, 30900, 30897, 30896, 0,
                         30901, 0,
@@ -1314,8 +1182,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Archimonde",
-                    Loot =
-                    {
+                    Loot = {
                         31097, 31095, 31096, 0,
                         30913, 30912, 30905, 30907, 30904, 30903, 0,
                         30910, 30908, 30911, 30902, 30906, 30909, 0,
@@ -1324,8 +1191,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         32609, 32592, 0,
                         32589, 32590, 32591, 34010, 0,
                         34009, 32946, 32945, 0,
@@ -1334,8 +1200,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Patterns",
-                    Loot =
-                    {
+                    Loot = {
                         32296, 32307, 32289, 32285, 32303, 32297, 32298, 32295, 0,
                         32754, 32755, 32753, 32752, 0,
                         32744, 32745, 32746, 32747, 32750, 32751, 32748, 32749, 0,
@@ -1348,12 +1213,10 @@ LootReserve.Data =
             Name = "Black Temple",
             NameShort = "BT",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "High Warlord Naj'entus",
-                    Loot =
-                    {
+                    Loot = {
                         32239, 32240, 32377, 32242, 32241, 32234, 32243, 32245, 32232, 0,
                         32247, 32238, 0,
                         32237, 32236, 32248, 0,
@@ -1361,8 +1224,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Supremus",
-                    Loot =
-                    {
+                    Loot = {
                         32256, 32252, 32259, 32258, 32251, 32250, 0,
                         32260, 32261, 0,
                         32255, 32257, 32262, 32253, 32254, 0,
@@ -1370,8 +1232,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Shade of Akama",
-                    Loot =
-                    {
+                    Loot = {
                         32270, 32513, 32273, 32271, 32265, 32276, 32275, 32264, 32278, 32279, 32268, 32263, 0,
                         32266, 0,
                         32361, 0,
@@ -1379,8 +1240,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Teron Gorefiend",
-                    Loot =
-                    {
+                    Loot = {
                         32327, 32329, 32328, 32324, 32510, 32512, 32280, 0,
                         32323, 0,
                         32330, 32348, 32326, 32325, 0,
@@ -1388,8 +1248,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Gurtogg Bloodboil",
-                    Loot =
-                    {
+                    Loot = {
                         32340, 32338, 32339, 32334, 32341, 32342, 32333, 0,
                         32337, 32335, 32501, 0,
                         32343, 32344, 32269, 0,
@@ -1397,8 +1256,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Reliquary of the Lost",
-                    Loot =
-                    {
+                    Loot = {
                         32353, 32352, 32351, 32347, 32517, 32346, 32354, 32345, 0,
                         32349, 32362, 0,
                         32350, 32363, 32332, 0,
@@ -1406,8 +1264,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Mother Shahraz",
-                    Loot =
-                    {
+                    Loot = {
                         31101, 31103, 31102, 0,
                         32367, 32366, 32365, 0,
                         32370, 32369, 32368, 0,
@@ -1415,8 +1272,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "The Illidari Council",
-                    Loot =
-                    {
+                    Loot = {
                         31098, 31100, 31099, 0,
                         32519, 32518, 32376, 32373, 0,
                         32331, 32505, 0,
@@ -1424,8 +1280,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Illidan Stormrage",
-                    Loot =
-                    {
+                    Loot = {
                         32837, 32838, 0,
                         31089, 31091, 31090, 0,
                         32525, 32235, 32521, 0,
@@ -1436,8 +1291,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         32609, 32593, 32592, 32606, 32608, 0,
                         32589, 32590, 32527, 32528, 34012, 32526, 32591, 0,
                         34009, 32943, 34011, 0,
@@ -1447,8 +1301,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Patterns",
-                    Loot =
-                    {
+                    Loot = {
                         32754, 32755, 32753, 32752, 0,
                         32744, 32745, 32746, 32747, 32750, 32751, 32748, 32749, 0,
                         32738, 32739, 32736, 32737, 0,
@@ -1460,12 +1313,10 @@ LootReserve.Data =
             Name = "Zul'Aman",
             NameShort = "ZA",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Akil'zon",
-                    Loot =
-                    {
+                    Loot = {
                         33286, 33216, 33215, 0,
                         33293, 33281, 0,
                         33283, 33214, 0,
@@ -1474,8 +1325,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Nalorakk",
-                    Loot =
-                    {
+                    Loot = {
                         33285, 33203, 33211, 33206, 33327, 33191, 0,
                         33640, 0,
                         33307, 0,
@@ -1483,8 +1333,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Jan'alai",
-                    Loot =
-                    {
+                    Loot = {
                         33357, 33356, 33329, 33328, 0,
                         33354, 33332, 33326, 0,
                         33307, 0,
@@ -1492,8 +1341,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Halazzi",
-                    Loot =
-                    {
+                    Loot = {
                         33317, 33322, 33300, 33533, 33299, 33303, 0,
                         33297, 0,
                         33307, 0,
@@ -1501,8 +1349,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Hex Lord Malacrass",
-                    Loot =
-                    {
+                    Loot = {
                         33453, 33463, 33432, 33464, 33421, 33446, 0,
                         33829, 33828, 33592, 34029, 0,
                         33465, 33389, 33298, 33388, 0,
@@ -1511,8 +1358,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Zul'jin",
-                    Loot =
-                    {
+                    Loot = {
                         33471, 33479, 33469, 33473, 0,
                         33466, 33831, 33830, 0,
                         33467, 33468, 33474, 33478, 33476, 0,
@@ -1524,38 +1370,33 @@ LootReserve.Data =
                 { Name = "Timed Chests", Header = true },
                 {
                     Name = " - First Prisoner Saved",
-                    Loot =
-                    {
+                    Loot = {
                         33489, 33480, 33971, 33483, 33805, 33481, 0,
                         33591, 33590, 0,
                     },
                 },
                 {
                     Name = " - Second Prisoner Saved",
-                    Loot =
-                    {
+                    Loot = {
                         33494, 33490, 33495, 33493, 33492, 33491, 0,
                     },
                 },
                 {
                     Name = " - Third Prisoner Saved",
-                    Loot =
-                    {
+                    Loot = {
                         33497, 33498, 33496, 33500, 33499, 0,
                     },
                 },
                 {
                     Name = " - Fourth Prisoner Saved",
-                    Loot =
-                    {
+                    Loot = {
                         33809, 0,
                     },
                 },
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         33993, 0,
                         33865, 33930, 33932, 33931, 33933, 0,
                     },
@@ -1566,12 +1407,10 @@ LootReserve.Data =
             Name = "Sunwell Plateau",
             NameShort = "SWP",
             Expansion = 1,
-            Children =
-            {
+            Children = {
                 {
                     Name = "Kalecgos",
-                    Loot =
-                    {
+                    Loot = {
                         34848, 34851, 34852, 0,
                         34386, 34170, 34169, 34384, 34168, 34167, 34382, 0,
                         34166, 0,
@@ -1580,8 +1419,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Brutallus",
-                    Loot =
-                    {
+                    Loot = {
                         34853, 34854, 34855, 0,
                         34181, 34180, 34381, 0,
                         34177, 34178, 0,
@@ -1590,8 +1428,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Felmyst",
-                    Loot =
-                    {
+                    Loot = {
                         34856, 34857, 34858, 0,
                         34188, 34385, 34186, 34383, 34352, 0,
                         34184, 0,
@@ -1600,8 +1437,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Eredar Twins",
-                    Loot =
-                    {
+                    Loot = {
                         34210, 34393, 34202, 34391, 34209, 34392, 34195, 34390, 34208, 34194, 34193, 34388, 34389, 34192, 0,
                         35290, 34204, 35291, 34205, 34189, 35292, 34190, 0,
                         34206, 34199, 34198, 34197, 34203, 34196, 0,
@@ -1609,8 +1445,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "M'uru",
-                    Loot =
-                    {
+                    Loot = {
                         34232, 34399, 34233, 34398, 34212, 34211, 34397, 34234, 34408, 34396, 34229, 34228, 34395, 34240, 34215, 34216, 34394, 0,
                         34230, 35282, 34429, 34430, 35283, 35284, 34427, 34428, 34213, 0,
                         34231, 34214, 0,
@@ -1618,8 +1453,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Kil'jaeden",
-                    Loot =
-                    {
+                    Loot = {
                         34334, 0,
                         34405, 34340, 34406, 34344, 34339, 34342, 34403, 34245, 34404, 34244, 34332, 34402, 34333, 34343, 34243, 34345, 34341, 34401, 34400, 0,
                         34242, 34241, 0,
@@ -1629,8 +1463,7 @@ LootReserve.Data =
                 { Separator = true },
                 {
                     Name = "Trash",
-                    Loot =
-                    {
+                    Loot = {
                         34407, 34351, 34409, 34350, 0,
                         35733, 0,
                         34347, 34348, 34349, 34183, 34346, 0,
@@ -1641,8 +1474,7 @@ LootReserve.Data =
                 },
                 {
                     Name = "Patterns",
-                    Loot =
-                    {
+                    Loot = {
                         35186, 35189, 35197, 35190, 35191, 35192, 35193, 35194, 35187, 35195, 35196, 0,
                         35204, 35206, 35205, 35207, 0,
                         35212, 35216, 35213, 35217, 35214, 35218, 35215, 35219, 0,
@@ -1653,8 +1485,7 @@ LootReserve.Data =
             },
         },
     },
-    ItemConditions =
-    {
+    ItemConditions = {
         -- Molten Core trash
         [11382] = { Hidden = true },
         [17010] = { Hidden = true },
@@ -1771,7 +1602,7 @@ LootReserve.Data =
 
         -- Ashes of A'lar
         [32458] = { Hidden = true },
-        
+
         -- Trade items
         [32897] = { Hidden = true },
         [32428] = { Hidden = true },
@@ -1803,7 +1634,7 @@ LootReserve.Data =
     QuestStarters = {
         -- Ancient Petrified Leaf
         [18703] = 7632,
-        
+
         -- Head of Onyxia
         [18422] = 7495,
         [18423] = 7490,
@@ -1811,347 +1642,346 @@ LootReserve.Data =
         -- Head of Nefarian
         [19002] = 7781,
         [19003] = 7783,
-        
+
         -- Heart of Hakkar
         [19802] = 8183,
-        
+
         -- Head of Ossirian the Unscarred
         [21220] = 8791,
-        
+
         -- Eye of C'Thun
         [21221] = 8801,
-        
+
         -- The Phylactery of Kel'Thuzad
         [22520] = 9120,
-            
+
         -- Magtheridon's Head
         [32385] = 11002,
         [32386] = 11003,
-        
+
         -- Verdant Sphere
         [32405] = 11007,
-        
+
         -- Blood of Zul'jin
         [33102] = 11178,
     },
-    
+
     -- Items that you must be on a quest to loot and only one is required
     QuestDrops = {
         -- Narain's Scrying Goggles
         [20951] = 8578,
-        
+
         -- Draconic for Dummies
         [21110] = 8620,
-        
+
         -- Head of the Broodlord Lashlayer
         [20383] = 8288,
-        
+
         -- Red Scepter Shard
         [21138] = 8730,
     },
     TokenMap = {
-        Tokens  = { },
+        Tokens = { },
         Rewards = { },
     },
 };
 
 local tokenMap = {
     -- MC
-    
+
     -- Eye of Sulfuras
-    [17204] = {17182},
+    [17204] = { 17182 },
     -- The Eye of Divinity
-    [18646] = {18608, 18609},
+    [18646] = { 18608, 18609 },
     -- Ancient Petrified Leaf
-    [18703] = {18714, 18713, 18715},
-    
-    
+    [18703] = { 18714, 18713, 18715 },
+
+
     -- Ony
     -- Can't add mature black dragon sinew because it's a token reward in MC
     -- Head of Onyxia
-    [18423] = {18404, 18403, 18406},
-    
-    
+    [18423] = { 18404, 18403, 18406 },
+
+
     -- Ony/BWL
-    
+
     -- Sack of Gems
-    [11938] = {17962, 17963, 17964, 17965, 17969},
-    
-    
+    [11938] = { 17962, 17963, 17964, 17965, 17969 },
+
+
     -- BWL
-    
+
     -- Head of Nefarian
-    [19003] = {19383, 19384, 19366},
-    
-    
+    [19003] = { 19383, 19384, 19366 },
+
+
     -- ZG
-    
+
     -- Heart of Hakkar
-    [19802] = {19950, 19949, 19948},
+    [19802] = { 19950, 19949, 19948 },
     -- Primal Hakkari Idol
-    [22637] = {19789, 19787, 19788, 19784, 19790, 19785, 19786, 19783, 19782},
+    [22637] = { 19789, 19787, 19788, 19784, 19790, 19785, 19786, 19783, 19782 },
     -- Primal Hakkari Shawl
-    [19721] = {19826, 19832, 19845},
+    [19721] = { 19826, 19832, 19845 },
     -- Primal Hakkari Aegis
-    [19724] = {19831, 19834, 19841},
+    [19724] = { 19831, 19834, 19841 },
     -- Primal Hakkari Kossack
-    [19723] = {19822, 20034, 20033},
+    [19723] = { 19822, 20034, 20033 },
     -- Primal Hakkari Tabard
-    [19722] = {19825, 19828, 19838},
+    [19722] = { 19825, 19828, 19838 },
     -- Primal Hakkari Armsplint
-    [19717] = {19824, 19836, 19830},
+    [19717] = { 19824, 19836, 19830 },
     -- Primal Hakkari Bindings
-    [19716] = {19827, 19833, 19846},
+    [19716] = { 19827, 19833, 19846 },
     -- Primal Hakkari Stanchion
-    [19718] = {19843, 19848, 19840},
+    [19718] = { 19843, 19848, 19840 },
     -- Primal Hakkari Girdle
-    [19719] = {19823, 19835, 19829},
+    [19719] = { 19823, 19835, 19829 },
     -- Primal Hakkari Sash
-    [19720] = {19842, 19849, 19839},
-    
-    
+    [19720] = { 19842, 19849, 19839 },
+
+
     -- AQ20
-    
+
     -- Head of Ossirian the Unscarred
-    [21220] = {21504, 21507, 21505, 21506},
+    [21220] = { 21504, 21507, 21505, 21506 },
     -- Qiraji Martial Drape
-    [20885] = {21394, 21406, 21412, 21415},
+    [20885] = { 21394, 21406, 21412, 21415 },
     -- Qiraji Regal Drape
-    [20889] = {21397, 21403, 21400, 21418, 21409},
+    [20889] = { 21397, 21403, 21400, 21418, 21409 },
     -- Qiraji Ceremonial Ring
-    [20888] = {21402, 21405, 21411, 21417},
+    [20888] = { 21402, 21405, 21411, 21417 },
     -- Qiraji Magisterial Ring
-    [20884] = {21393, 21396, 21399, 21414, 21408},
+    [20884] = { 21393, 21396, 21399, 21414, 21408 },
     -- Qiraji Ornate Hilt
-    [20890] = {21410, 21413, 21416, 21407},
+    [20890] = { 21410, 21413, 21416, 21407 },
     -- Qiraji Spiked Hilt
-    [20886] = {21392, 21395, 21401, 21404, 21398},
-    
-    
+    [20886] = { 21392, 21395, 21401, 21404, 21398 },
+
+
     -- AQ40
-    
+
     -- Eye of C'Thun
-    [21221] = {21712, 21710, 21709},
+    [21221] = { 21712, 21710, 21709 },
     -- Carapace of the Old God
-    [20929] = {21331, 21389, 21370, 21364, 21374},
+    [20929] = { 21331, 21389, 21370, 21364, 21374 },
     -- Husk of the Old God
-    [20933] = {21351, 21343, 21334, 21357},
+    [20933] = { 21351, 21343, 21334, 21357 },
     -- Ouro's Intact Hide
-    [20927] = {21332, 21362, 21352, 21346},
+    [20927] = { 21332, 21362, 21352, 21346 },
     -- Skin of the Great Sandworm
-    [20931] = {21390, 21368, 21375, 21336, 21356},
+    [20931] = { 21390, 21368, 21375, 21336, 21356 },
     -- Vek'lor's Diadem
-    [20930] = {21387, 21366, 21360, 21372, 21353},
+    [20930] = { 21387, 21366, 21360, 21372, 21353 },
     -- Vek'nilash's Circlet
-    [20926] = {21329, 21348, 21347, 21337},
+    [20926] = { 21329, 21348, 21347, 21337 },
     -- Imperial Qiraji Armaments
-    [21232] = {21242, 21244, 21272, 21269},
+    [21232] = { 21242, 21244, 21272, 21269 },
     -- Imperial Qiraji Regalia
-    [21237] = {21268, 21273, 21275},
+    [21237] = { 21268, 21273, 21275 },
     -- Qiraji Bindings of Command
-    [20928] = {21330, 21333, 21367, 21365, 21361, 21359, 21350, 21349},
+    [20928] = { 21330, 21333, 21367, 21365, 21361, 21359, 21350, 21349 },
     -- Qiraji Bindings of Dominance
-    [20932] = {21391, 21388, 21376, 21373, 21345, 21344, 21335, 21338, 21354, 21355},
-    
-    
+    [20932] = { 21391, 21388, 21376, 21373, 21345, 21344, 21335, 21338, 21354, 21355 },
+
+
     -- Naxx
-    
+
     -- The Phylactery of Kel'Thuzad
-    [22520] = {23207, 23206},
+    [22520] = { 23207, 23206 },
     -- Desecrated Bindings
-    [22369] = {22519, 22503, 22511},
+    [22369] = { 22519, 22503, 22511 },
     -- Desecrated Wristguards
-    [22362] = {22424, 22443, 22471, 22495},
+    [22362] = { 22424, 22443, 22471, 22495 },
     -- Desecrated Bracers
-    [22355] = {22423, 22483},
+    [22355] = { 22423, 22483 },
     -- Desecrated Gloves
-    [22371] = {22517, 22501, 22509},
+    [22371] = { 22517, 22501, 22509 },
     -- Desecrated Handguards
-    [22364] = {22426, 22441, 22469, 22493},
+    [22364] = { 22426, 22441, 22469, 22493 },
     -- Desecrated Gauntlets
-    [22357] = {22421, 22481},
+    [22357] = { 22421, 22481 },
     -- Desecrated Belt
-    [22370] = {22518, 22502, 22510},
+    [22370] = { 22518, 22502, 22510 },
     -- Desecrated Girdle
-    [22363] = {22431, 22442, 22470, 22494},
+    [22363] = { 22431, 22442, 22470, 22494 },
     -- Desecrated Waistguard
-    [22356] = {22422, 22482},
+    [22356] = { 22422, 22482 },
     -- Desecrated Leggings
-    [22366] = {22513, 22497, 22505},
+    [22366] = { 22513, 22497, 22505 },
     -- Desecrated Legguards
-    [22359] = {22427, 22437, 22465, 22489},
+    [22359] = { 22427, 22437, 22465, 22489 },
     -- Desecrated Legplates
-    [22352] = {22417, 22477},
+    [22352] = { 22417, 22477 },
     -- Desecrated Sandals
-    [22372] = {22516, 22500, 22508},
+    [22372] = { 22516, 22500, 22508 },
     -- Desecrated Boots
-    [22365] = {22430, 22440, 22468, 22492},
+    [22365] = { 22430, 22440, 22468, 22492 },
     -- Desecrated Sabatons
-    [22358] = {22420, 22480},
+    [22358] = { 22420, 22480 },
     -- Desecrated Robe
-    [22351] = {22512, 22496, 22504},
+    [22351] = { 22512, 22496, 22504 },
     -- Desecrated Tunic
-    [22350] = {22425, 22436, 22464, 22488},
+    [22350] = { 22425, 22436, 22464, 22488 },
     -- Desecrated Breastplate
-    [22349] = {22416, 22476},
+    [22349] = { 22416, 22476 },
     -- Desecrated Shoulderpads
-    [22368] = {22515, 22499, 22507},
+    [22368] = { 22515, 22499, 22507 },
     -- Desecrated Spaulders
-    [22361] = {22429, 22439, 22467, 22491},
+    [22361] = { 22429, 22439, 22467, 22491 },
     -- Desecrated Pauldrons
-    [22354] = {22419, 22479},
+    [22354] = { 22419, 22479 },
     -- Desecrated Circlet
-    [22367] = {22514, 22498, 22506},
+    [22367] = { 22514, 22498, 22506 },
     -- Desecrated Headpiece
-    [22360] = {22428, 22438, 22466, 22490},
+    [22360] = { 22428, 22438, 22466, 22490 },
     -- Desecrated Helmet
-    [22353] = {22418, 22478},
-    
-    
-    
+    [22353] = { 22418, 22478 },
+
+
     -- Kara
-    
+
     -- Gloves of the Fallen Champion
-    [29757] = {29065, 29067, 29072, 29048, 29032, 29034, 29039, --[[PVP]] 31614, 27703, 27880, 25834, 27470, 31397, 26000},
+    [29757] = { 29065, 29067, 29072, 29048, 29032, 29034, 29039, --[[PVP]] 31614, 27703, 27880, 25834, 27470, 31397, 26000 },
     -- Gloves of the Fallen Defender
-    [29758] = {29017, 29020, 29055, 29057, 29090, 29092, 29097, --[[PVP]] 24549, 31409, 27707, 31375, 28136, 28126},
+    [29758] = { 29017, 29020, 29055, 29057, 29090, 29092, 29097, --[[PVP]] 24549, 31409, 27707, 31375, 28136, 28126 },
     -- Gloves of the Fallen Hero
-    [29756] = {29085, 29080, 28968, --[[PVP]] 28335, 25857, 24556, 30188},
+    [29756] = { 29085, 29080, 28968, --[[PVP]] 28335, 25857, 24556, 30188 },
     -- Helm of the Fallen Champion
-    [29760] = {29061, 29068, 29073, 29044, 29028, 29035, 29040, --[[PVP]] 31616, 27704, 27881, 25830, 27471, 31400, 25998},
+    [29760] = { 29061, 29068, 29073, 29044, 29028, 29035, 29040, --[[PVP]] 31616, 27704, 27881, 25830, 27471, 31400, 25998 },
     -- Helm of the Fallen Defender
-    [29761] = {29011, 29021, 29049, 29058, 29086, 29093, 29098, --[[PVP]] 24545, 31410, 27708, 31376, 28137, 28127},
+    [29761] = { 29011, 29021, 29049, 29058, 29086, 29093, 29098, --[[PVP]] 24545, 31410, 27708, 31376, 28137, 28127 },
     -- Helm of the Fallen Hero
-    [29759] = {29081, 29076, 28963, --[[PVP]] 28331, 25855, 24553, 30187},
-    
-    
+    [29759] = { 29081, 29076, 28963, --[[PVP]] 28331, 25855, 24553, 30187 },
+
+
     -- Gruul
-    
+
     -- Pauldrons of the Fallen Champion
-    [29763] = {29064, 29070, 29075, 29047, 29037, 29031, 29043, --[[PVP]] 31619, 27706, 27883, 25832, 27473, 31407, 25999},
+    [29763] = { 29064, 29070, 29075, 29047, 29037, 29031, 29043, --[[PVP]] 31619, 27706, 27883, 25832, 27473, 31407, 25999 },
     -- Pauldrons of the Fallen Defender
-    [29764] = {29016, 29023, 29054, 29060, 29100, 29095, 29089, --[[PVP]] 24546, 31412, 27710, 31378, 28139, 28129},
+    [29764] = { 29016, 29023, 29054, 29060, 29100, 29095, 29089, --[[PVP]] 24546, 31412, 27710, 31378, 28139, 28129 },
     -- Pauldrons of the Fallen Hero
-    [29762] = {29084, 29079, 28967, --[[PVP]] 28333, 25854, 24554, 30186},
+    [29762] = { 29084, 29079, 28967, --[[PVP]] 28333, 25854, 24554, 30186 },
     -- Leggings of the Fallen Champion
-    [29766] = {29074, 29063, 29069, 29046, 29030, 29036, 29042, --[[PVP]] 31618, 27705, 27882, 25833, 27472, 31406, 26001},
+    [29766] = { 29074, 29063, 29069, 29046, 29030, 29036, 29042, --[[PVP]] 31618, 27705, 27882, 25833, 27472, 31406, 26001 },
     -- Leggings of the Fallen Defender
-    [29767] = {29022, 29015, 29059, 29053, 29094, 29099, 29088, --[[PVP]] 24547, 31411, 27709, 31377, 28138, 28128},
+    [29767] = { 29022, 29015, 29059, 29053, 29094, 29099, 29088, --[[PVP]] 24547, 31411, 27709, 31377, 28138, 28128 },
     -- Leggings of the Fallen Hero
-    [29765] = {29083, 29078, 28966, --[[PVP]] 28332, 25858, 24555, 30201},
-    
-    
+    [29765] = { 29083, 29078, 28966, --[[PVP]] 28332, 25858, 24555, 30201 },
+
+
     -- Mag
-    
+
     -- Magtheridon's Head
-    [32385] = {28791, 28790, 28793, 28792},
+    [32385] = { 28791, 28790, 28793, 28792 },
     -- Chestguard of the Fallen Champion
-    [29754] = {29071, 29066, 29062, 29045, 29038, 29033, 29029, --[[PVP]] 31613, 27702, 27879, 25831, 27469, 31396, 25997},
+    [29754] = { 29071, 29066, 29062, 29045, 29038, 29033, 29029, --[[PVP]] 31613, 27702, 27879, 25831, 27469, 31396, 25997 },
     -- Chestguard of the Fallen Defender
-    [29753] = {29012, 29019, 29050, 29056, 29087, 29091, 29096, --[[PVP]] 24544, 31413, 27711, 31379, 28140, 28130},
+    [29753] = { 29012, 29019, 29050, 29056, 29087, 29091, 29096, --[[PVP]] 24544, 31413, 27711, 31379, 28140, 28130 },
     -- Chestguard of the Fallen Hero
-    [29755] = {29082, 29077, 28964, --[[PVP]] 28334, 25856, 24552, 30200},
-    
-    
+    [29755] = { 29082, 29077, 28964, --[[PVP]] 28334, 25856, 24552, 30200 },
+
+
     -- SSC
-    
+
     -- Gloves of the Vanquished Champion
-    [30239] = {30130, 30135, 30124, 30145, 30189, 30165, 30170, --[[PVP]] 32021, 31993, 32040, 31998, 32010, 32030, 32005},
+    [30239] = { 30130, 30135, 30124, 30145, 30189, 30165, 30170, --[[PVP]] 32021, 31993, 32040, 31998, 32010, 32030, 32005 },
     -- Gloves of the Vanquished Defender
-    [30240] = {30114, 30119, 30160, 30151, 30223, 30217, 30232, --[[PVP]] 30487, 32015, 32034, 31987, 32056, 31967},
+    [30240] = { 30114, 30119, 30160, 30151, 30223, 30217, 30232, --[[PVP]] 30487, 32015, 32034, 31987, 32056, 31967 },
     -- Gloves of the Vanquished Hero
-    [30241] = {30140, 30205, 30211, --[[PVP]] 31961, 32049, 31973, 31981},
+    [30241] = { 30140, 30205, 30211, --[[PVP]] 31961, 32049, 31973, 31981 },
     -- Leggings of the Vanquished Champion
-    [30245] = {30132, 30137, 30126, 30148, 30172, 30167, 30192, --[[PVP]] 32023, 31995, 32042, 32000, 32012, 32032, 32007},
+    [30245] = { 30132, 30137, 30126, 30148, 30172, 30167, 30192, --[[PVP]] 32023, 31995, 32042, 32000, 32012, 32032, 32007 },
     -- Leggings of the Vanquished Defender
-    [30246] = {30121, 30116, 30153, 30162, 30229, 30220, 30234, --[[PVP]] 30489, 32017, 32036, 31989, 32058, 31969},
+    [30246] = { 30121, 30116, 30153, 30162, 30229, 30220, 30234, --[[PVP]] 30489, 32017, 32036, 31989, 32058, 31969 },
     -- Leggings of the Vanquished Hero
-    [30247] = {30142, 30207, 30213, --[[PVP]] 31963, 32051, 31975, 31983},
+    [30247] = { 30142, 30207, 30213, --[[PVP]] 31963, 32051, 31975, 31983 },
     -- Helm of the Vanquished Champion
-    [30242] = {30125, 30136, 30131, 30146, 30166, 30171, 30190, --[[PVP]] 32022, 31997, 32041, 31999, 32011, 32031, 32006},
+    [30242] = { 30125, 30136, 30131, 30146, 30166, 30171, 30190, --[[PVP]] 32022, 31997, 32041, 31999, 32011, 32031, 32006 },
     -- Helm of the Vanquished Defender
-    [30243] = {30120, 30115, 30161, 30152, 30228, 30219, 30233, --[[PVP]] 30488, 32016, 32035, 31988, 32057, 31968},
+    [30243] = { 30120, 30115, 30161, 30152, 30228, 30219, 30233, --[[PVP]] 30488, 32016, 32035, 31988, 32057, 31968 },
     -- Helm of the Vanquished Hero
-    [30244] = {30141, 30206, 30212, --[[PVP]] 31962, 32048, 31974, 31980},
-    
-    
+    [30244] = { 30141, 30206, 30212, --[[PVP]] 31962, 32048, 31974, 31980 },
+
+
     -- TK
-    
+
     -- Verdant Sphere
-    [32405] = {30018, 30017, 30007, 30015},
+    [32405] = { 30018, 30017, 30007, 30015 },
     -- Pauldrons of the Vanquished Champion
-    [30248] = {30127, 30133, 30138, 30149, 30168, 30173, 30194, --[[PVP]] 32024, 31996, 32043, 32001, 32013, 32033, 32008},
+    [30248] = { 30127, 30133, 30138, 30149, 30168, 30173, 30194, --[[PVP]] 32024, 31996, 32043, 32001, 32013, 32033, 32008 },
     -- Pauldrons of the Vanquished Defender
-    [30249] = {30117, 30122, 30154, 30163, 30221, 30230, 30235, --[[PVP]] 30490, 32018, 32037, 31990, 32059, 31971},
+    [30249] = { 30117, 30122, 30154, 30163, 30221, 30230, 30235, --[[PVP]] 30490, 32018, 32037, 31990, 32059, 31971 },
     -- Pauldrons of the Vanquished Hero
-    [30250] = {30143, 30210, 30215, --[[PVP]] 31964, 32047, 31976, 31979},
+    [30250] = { 30143, 30210, 30215, --[[PVP]] 31964, 32047, 31976, 31979 },
     -- Chestguard of the Vanquished Champion
-    [30236] = {30123, 30129, 30134, 30144, 30164, 30169, 30185, --[[PVP]] 32020, 31992, 32039, 32002, 32009, 32029, 32004},
+    [30236] = { 30123, 30129, 30134, 30144, 30164, 30169, 30185, --[[PVP]] 32020, 31992, 32039, 32002, 32009, 32029, 32004 },
     -- Chestguard of the Vanquished Defender
-    [30237] = {30113, 30118, 30150, 30159, 30216, 30222, 30231, --[[PVP]] 30486, 32019, 32038, 31991, 32060, 31972},
+    [30237] = { 30113, 30118, 30150, 30159, 30216, 30222, 30231, --[[PVP]] 30486, 32019, 32038, 31991, 32060, 31972 },
     -- Chestguard of the Vanquished Hero
-    [30238] = {30139, 30196, 30214, --[[PVP]] 31960, 32050, 31977, 31982},
-    
-    
+    [30238] = { 30139, 30196, 30214, --[[PVP]] 31960, 32050, 31977, 31982 },
+
+
     -- Hyjal
-    
+
     -- Gloves of the Forgotten Conqueror
-    [31092] = {30982, 30983, 30985, 31060, 31061, 31050},
+    [31092] = { 30982, 30983, 30985, 31060, 31061, 31050 },
     -- Gloves of the Forgotten Protector
-    [31094] = {30969, 30970, 31001, 31007, 31008, 31011},
+    [31094] = { 30969, 30970, 31001, 31007, 31008, 31011 },
     -- Gloves of the Forgotten Vanquisher
-    [31093] = {31026, 31055, 31032, 31034, 31035},
+    [31093] = { 31026, 31055, 31032, 31034, 31035 },
     -- Helm of the Forgotten Conqueror
-    [31097] = {30987, 30988, 30989, 31063, 31064, 31051},
+    [31097] = { 30987, 30988, 30989, 31063, 31064, 31051 },
     -- Helm of the Forgotten Protector
-    [31095] = {30972, 30974, 31003, 31012, 31014, 31015},
+    [31095] = { 30972, 30974, 31003, 31012, 31014, 31015 },
     -- Helm of the Forgotten Vanquisher
-    [31096] = {31027, 31056, 31037, 31040, 31039},
-    
-    
+    [31096] = { 31027, 31056, 31037, 31040, 31039 },
+
+
     -- BT
-    
+
     -- Pauldrons of the Forgotten Conqueror
-    [31101] = {30996, 30997, 30998, 31069, 31070, 31054},
+    [31101] = { 30996, 30997, 30998, 31069, 31070, 31054 },
     -- Pauldrons of the Forgotten Protector
-    [31103] = {30979, 30980, 31006, 31022, 31023, 31024},
+    [31103] = { 30979, 30980, 31006, 31022, 31023, 31024 },
     -- Pauldrons of the Forgotten Vanquisher
-    [31102] = {31030, 31059, 31047, 31048, 31049},
+    [31102] = { 31030, 31059, 31047, 31048, 31049 },
     -- Leggings of the Forgotten Conqueror
-    [31098] = {30993, 30994, 30995, 31067, 31068, 31053},
+    [31098] = { 30993, 30994, 30995, 31067, 31068, 31053 },
     -- Leggings of the Forgotten Protector
-    [31100] = {30977, 30978, 31005, 31019, 31020, 31021},
+    [31100] = { 30977, 30978, 31005, 31019, 31020, 31021 },
     -- Leggings of the Forgotten Vanquisher
-    [31099] = {31029, 31058, 31044, 31045, 31046},
+    [31099] = { 31029, 31058, 31044, 31045, 31046 },
     -- Chestguard of the Forgotten Conqueror
-    [31089] = {30990, 30991, 30992, 31065, 31066, 31052},
+    [31089] = { 30990, 30991, 30992, 31065, 31066, 31052 },
     -- Chestguard of the Forgotten Protector
-    [31091] = {30975, 30976, 31004, 31016, 31017, 31018},
+    [31091] = { 30975, 30976, 31004, 31016, 31017, 31018 },
     -- Chestguard of the Forgotten Vanquisher
-    [31090] = {31028, 31057, 31041, 31042, 31043},
-    
-    
+    [31090] = { 31028, 31057, 31041, 31042, 31043 },
+
+
     -- SWP
-    
+
     -- Bracers of the Forgotten Conqueror
-    [34848] = {34431, 34432, 34433, 34434, 34435, 34436},
+    [34848] = { 34431, 34432, 34433, 34434, 34435, 34436 },
     -- Bracers of the Forgotten Protector
-    [34851] = {34441, 34442, 34443, 34437, 34438, 34439},
+    [34851] = { 34441, 34442, 34443, 34437, 34438, 34439 },
     -- Bracers of the Forgotten Vanquisher
-    [34852] = {34448, 34447, 34444, 34445, 34446},
+    [34852] = { 34448, 34447, 34444, 34445, 34446 },
     -- Belt of the Forgotten Conqueror
-    [34853] = {34485, 34487, 34488, 34527, 34528, 34541},
+    [34853] = { 34485, 34487, 34488, 34527, 34528, 34541 },
     -- Belt of the Forgotten Protector
-    [34854] = {34546, 34547, 34549, 34542, 34543, 34545},
+    [34854] = { 34546, 34547, 34549, 34542, 34543, 34545 },
     -- Belt of the Forgotten Vanquisher
-    [34855] = {34558, 34557, 34554, 34555, 34556},
+    [34855] = { 34558, 34557, 34554, 34555, 34556 },
     -- Boots of the Forgotten Conqueror
-    [34856] = {34559, 34560, 34561, 34562, 34563, 34564},
+    [34856] = { 34559, 34560, 34561, 34562, 34563, 34564 },
     -- Boots of the Forgotten Protector
-    [34857] = {34568, 34569, 34570, 34565, 34566, 34567},
+    [34857] = { 34568, 34569, 34570, 34565, 34566, 34567 },
     -- Boots of the Forgotten Vanquisher
-    [34858] = {34575, 34574, 34571, 34572, 34573},
-    
+    [34858] = { 34575, 34574, 34571, 34572, 34573 },
+
 };
 
 for token, rewards in pairs(tokenMap) do
@@ -2180,7 +2010,7 @@ if LootReserve:GetCurrentExpansion() == 1 then
     LootReserve.Data.ItemConditions[16858] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[16859] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[16860] = { Faction = classicAlliance };
-        
+
     -- T2
     LootReserve.Data.ItemConditions[16943] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[16944] = { Faction = classicHorde };
@@ -2198,15 +2028,15 @@ if LootReserve:GetCurrentExpansion() == 1 then
     LootReserve.Data.ItemConditions[16956] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[16957] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[16958] = { Faction = classicAlliance };
-        
+
     -- BWL trinkets
     LootReserve.Data.ItemConditions[19343] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[19344] = { Faction = classicHorde };
-        
+
     -- ZG gloves
     LootReserve.Data.ItemConditions[20264] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[20257] = { Faction = classicHorde };
-        
+
     -- AQ20 books
     LootReserve.Data.ItemConditions[21288] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[21289] = { Faction = classicAlliance };
@@ -2214,7 +2044,7 @@ if LootReserve:GetCurrentExpansion() == 1 then
     LootReserve.Data.ItemConditions[21291] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[21292] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[21293] = { Faction = classicHorde };
-        
+
     -- AQ20 equipment
     LootReserve.Data.ItemConditions[21453] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[21454] = { Faction = classicHorde };
@@ -2222,18 +2052,18 @@ if LootReserve:GetCurrentExpansion() == 1 then
     LootReserve.Data.ItemConditions[21487] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[21803] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[21804] = { Faction = classicHorde };
-    
+
     -- AQ40 boots
     LootReserve.Data.ItemConditions[21704] = { Faction = classicAlliance };
     LootReserve.Data.ItemConditions[21705] = { Faction = classicHorde };
-    
+
     -- AQ40 trash paladin gloves
     LootReserve.Data.ItemConditions[21889] = { Faction = classicAlliance };
-        
+
     -- Naxx rings
     LootReserve.Data.ItemConditions[23065] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[23066] = { Faction = classicAlliance };
-        
+
     -- Naxx trash drops
     LootReserve.Data.ItemConditions[23664] = { Faction = classicHorde };
     LootReserve.Data.ItemConditions[23665] = { Faction = classicHorde };
@@ -2244,7 +2074,9 @@ end
 
 function LootReserve.Data:IsItemInCategories(itemID, categories)
     for _, category in ipairs(categories) do
-        if itemID == 0 or category <= 0 then return false; end
+        if itemID == 0 or category <= 0 then
+            return false;
+        end
 
         category = self.Categories[category];
         if category and category.Children and self:IsCategoryVisible(category) then

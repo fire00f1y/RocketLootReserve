@@ -24,13 +24,13 @@ function LootReserve.Client:UpdateReserveStatus()
     else
         local reservesLeft = LootReserve.Client:GetRemainingReserves();
         local maxReserves = self:GetMaxReserves();
-        self.Window.RemainingText:SetText(format("%s %s|cFF%s %d%s|r item |4reserve:reserves; %s", 
-            self.Masquerade and LootReserve:ColoredPlayer(self.Masquerade) or "You",
-            self.Masquerade and "has" or "have",
-            reservesLeft > 0 and (reservesLeft < maxReserves and "FF7700" or "00FF00") or "FF0000",
-            reservesLeft,
-            reservesLeft < maxReserves and format("/%d", maxReserves) or "",
-            reservesLeft < maxReserves and "remaining" or "in total"
+        self.Window.RemainingText:SetText(format("%s %s|cFF%s %d%s|r item |4reserve:reserves; %s",
+                self.Masquerade and LootReserve:ColoredPlayer(self.Masquerade) or "You",
+                self.Masquerade and "has" or "have",
+                reservesLeft > 0 and (reservesLeft < maxReserves and "FF7700" or "00FF00") or "FF0000",
+                reservesLeft,
+                reservesLeft < maxReserves and format("/%d", maxReserves) or "",
+                reservesLeft < maxReserves and "remaining" or "in total"
         ));
         --self.Window.RemainingTextGlow:SetVertexColor(reservesLeft > 0 and 0 or 1, reservesLeft > 0 and 1 or 0, 0);
         --local r, g, b = self.Window.Duration:GetStatusBarColor();
@@ -44,7 +44,6 @@ function LootReserve.Client:UpdateReserveStatus()
 
     self.Window.OptOut:SetEnabled(not self:IsOptPending());
     self.Window.OptIn:SetEnabled(not self:IsOptPending());
-    
 
     local list = self.Window.Loot.Scroll.Container;
     list.Frames = list.Frames or { };
@@ -126,7 +125,7 @@ function LootReserve.Client:UpdateLootList()
         list.GlobalFavoritesHeader:Hide();
     end
 
-    local missing     = { };
+    local missing = { };
     local missingLoad = { };
     local function createFrame(item, source)
         list.LastIndex = list.LastIndex + 1;
@@ -251,7 +250,7 @@ function LootReserve.Client:UpdateLootList()
                             list.ContentHeight = list.ContentHeight + list.GlobalFavoritesHeader:GetHeight();
                         end
                     end
-                    
+
                     local item = LootReserve.ItemCache:Item(itemID);
                     createFrame(item);
                     if not item:IsCached() then
@@ -282,7 +281,7 @@ function LootReserve.Client:UpdateLootList()
                             if item:IsCached() and matchesFilter(reward, filter) then
                                 createFrame(item, "Custom Item");
                                 alreadyFoundIDs[itemID] = true;
-                                break;
+                                break ;
                             end
                         else
                             table.insert(missing, reward);
@@ -315,7 +314,7 @@ function LootReserve.Client:UpdateLootList()
                                             if item:IsCached() and matchesFilter(reward, filter) then
                                                 createFrame(item, format("%s > %s", category.Name, child.Name));
                                                 alreadyFoundIDs[itemID] = true;
-                                                break;
+                                                break ;
                                             end
                                         else
                                             table.insert(missing, reward);
@@ -328,7 +327,7 @@ function LootReserve.Client:UpdateLootList()
                 end
             end
         end
-        
+
     elseif self.SelectedCategory and self.SelectedCategory.Custom then
         for itemID, conditions in pairs(self.ItemConditions) do
             if itemID ~= 0 and conditions.Custom then
@@ -367,7 +366,7 @@ function LootReserve.Client:UpdateLootList()
                 self:UpdateLootList();
             end);
         end
-        self.PendingLootListUpdate:SetSpeed(math.ceil(#missing/LootReserve.ItemSearch.BatchFrames));
+        self.PendingLootListUpdate:SetSpeed(math.ceil(#missing / LootReserve.ItemSearch.BatchFrames));
     elseif #missingLoad > 0 then
         if #missingLoad > LootReserve.ItemSearch.BatchCap then
             for i = LootReserve.ItemSearch.BatchCap + 1, #missingLoad do
@@ -379,7 +378,7 @@ function LootReserve.Client:UpdateLootList()
                 self:UpdateLootList();
             end);
         end
-        self.PendingLootListUpdate:SetSpeed(math.ceil(#missingLoad/LootReserve.ItemSearch.BatchFrames));
+        self.PendingLootListUpdate:SetSpeed(math.ceil(#missingLoad / LootReserve.ItemSearch.BatchFrames));
     end
     for i = list.LastIndex + 1, #list.Frames do
         list.Frames[i]:Hide();
@@ -407,11 +406,11 @@ function LootReserve.Client:UpdateCategories()
         local frame = list.Frames[list.LastIndex];
         while not frame do
             frame = CreateFrame("CheckButton", nil, list,
-                not category and "LootReserveCategoryListExpansionTemplate" or
-                category.Separator and "LootReserveCategoryListSeparatorTemplate" or
-                category.Children and "LootReserveCategoryListHeaderTemplate" or
-                category.Header and "LootReserveCategoryListSubheaderTemplate" or
-                "LootReserveCategoryListButtonTemplate");
+                    not category and "LootReserveCategoryListExpansionTemplate" or
+                            category.Separator and "LootReserveCategoryListSeparatorTemplate" or
+                            category.Children and "LootReserveCategoryListHeaderTemplate" or
+                            category.Header and "LootReserveCategoryListSubheaderTemplate" or
+                            "LootReserveCategoryListButtonTemplate");
 
             if #list.Frames == 0 then
                 frame:SetPoint("TOPLEFT", list, "TOPLEFT");
@@ -430,11 +429,13 @@ function LootReserve.Client:UpdateCategories()
         frame.DefaultHeight = frame.DefaultHeight or frame:GetHeight();
 
         if not category then
-            frame.Text:SetText(format(self.Settings.CollapsedExpansions[frame.Expansion] and "|cFF404040%s|r" or "|cFFFFD200%s|r", _G["EXPANSION_NAME"..expansion]));
+            frame.Text:SetText(format(self.Settings.CollapsedExpansions[frame.Expansion] and "|cFF404040%s|r" or "|cFFFFD200%s|r", _G["EXPANSION_NAME" .. expansion]));
             frame.GlowLeft:SetShown(not self.Settings.CollapsedExpansions[frame.Expansion]);
             frame.GlowRight:SetShown(not self.Settings.CollapsedExpansions[frame.Expansion]);
             frame:RegisterForClicks("LeftButtonDown");
-            frame:SetScript("OnClick", function(frame) self:OnExpansionToggle(frame); end);
+            frame:SetScript("OnClick", function(frame)
+                self:OnExpansionToggle(frame);
+            end);
         elseif category.Separator then
             frame:EnableMouse(false);
         elseif category.Header then
@@ -448,13 +449,17 @@ function LootReserve.Client:UpdateCategories()
             else
                 frame:EnableMouse(true);
                 frame:RegisterForClicks("LeftButtonDown");
-                frame:SetScript("OnClick", function(frame) self:OnCategoryToggle(frame); end);
+                frame:SetScript("OnClick", function(frame)
+                    self:OnCategoryToggle(frame);
+                end);
             end
             frame.Text:SetText(format(categoryCollapsed and "|cFF806900%s|r" or "%s", category.Name));
         else
             frame.Text:SetText(category.Name);
             frame:RegisterForClicks("LeftButtonDown");
-            frame:SetScript("OnClick", function(frame) self:OnCategoryClick(frame); end);
+            frame:SetScript("OnClick", function(frame)
+                self:OnCategoryClick(frame);
+            end);
         end
     end
 
@@ -485,7 +490,7 @@ function LootReserve.Client:UpdateCategories()
     else
         self.Window.TitleText:SetText("LootReserve");
     end
-    
+
     for id, category in LootReserve:Ordered(LootReserve.Data.Categories, LootReserve.Data.CategorySorter) do
         if LootReserve.Data:IsCategoryVisible(category) then
             createCategoryButtonsRecursively(id, category);
@@ -502,12 +507,12 @@ function LootReserve.Client:UpdateCategories()
         end
 
         if i <= list.LastIndex
-            and (not self.LootCategories or not frame.CategoryID or frame.CategoryID < 0 or LootReserve:Contains(self.LootCategories, frame.CategoryID))
-            and (not frame.Category or not frame.Category.Custom or LootReserve.ItemConditions:HasCustom(false))
-            and (not categoryCollapsed or not frame.Category or frame.Category.Children)
-            and (not expansionCollapsed or not frame.Category)
-            and (not frame.Expansion or frame.Category or not self.LootCategories)
-            then
+                and (not self.LootCategories or not frame.CategoryID or frame.CategoryID < 0 or LootReserve:Contains(self.LootCategories, frame.CategoryID))
+                and (not frame.Category or not frame.Category.Custom or LootReserve.ItemConditions:HasCustom(false))
+                and (not categoryCollapsed or not frame.Category or frame.Category.Children)
+                and (not expansionCollapsed or not frame.Category)
+                and (not frame.Expansion or frame.Category or not self.LootCategories)
+        then
             if categoryCollapsed and frame.Category and frame.Category.Children then
                 frame:SetHeight(frame.DefaultHeight - 7);
             else
@@ -527,7 +532,7 @@ function LootReserve.Client:UpdateCategories()
         for i, frame in ipairs(list.Frames) do
             if frame.Category.Favorites then
                 frame:Click();
-                break;
+                break ;
             end
         end
     end
@@ -543,8 +548,8 @@ function LootReserve.Client:OnCategoryClick(button)
     -- Don't allow deselecting the current selected category
     if not button:GetChecked() then
         button:SetChecked(true);
-        return;
-    end;
+        return ;
+    end ;
 
     -- Toggle off all the other checkbuttons
     for _, b in pairs(self.Window.Categories.Scroll.Container.Frames) do

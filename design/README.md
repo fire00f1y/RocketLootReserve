@@ -58,10 +58,58 @@ Things to change:
 ### Host Window Options
 
 ## Backend
-This section will deal primarily with the technical implementation of different components. 
+This section will deal primarily with the technical implementation of different components.
 
 ### Tracking of Plusses
+<<<<<<< HEAD
+The implementation of the tracking the plusses will be a traditional gossip protocol where each client keeps a copy of the source with a version and syncs with all the other clients when there is a change.
+This is required due to blizzard's restriction of making external network requests from the wow client.
+<!---
+This is the source for the flowchart used in https://flowchart.js.org/ 
+
+j=>start: RL Starts Raid
+k=>operation: Kill Boss
+r=>condition: You reserved loot?
+roll=>condition: Roll?
+ap=>operation: Add plusses
+rp=>operation: Remove plusses
+s=>parallel: Sync with raid members
+win=>condition: Win?
+g=>operation: Get data from other raid members
+v=>operation: Update loot sheet version
+i=>operation: Update raid data (in memory)
+w=>operation: Write raid data to file (on computer)
+send=>operation: Send update to other raid members
+resolution=>inputoutput: Wait for loot resolution
+uv=>condition: Updated version?
+
+j(right)->s
+s(path1)->uv
+s(path2@sync, right)->g->i->v->w
+uv(no)->k
+uv(yes)->send
+send->k
+k->r
+r(no)->k
+r(yes)->roll
+roll(no)->ap
+roll(yes)->win
+win(yes)->rp
+win(no)->ap
+ap->resolution
+rp->resolution
+resolution(left)->s
+-->
+![gossip flowchart](pictures/gossip_flow.png)
+
+Two things to note:
+1. The app syncs whenever any loot event happens
+2. It makes sure the loot event is over before syncing.
+
+The danger in using this is that updates may not be received by every member, which is why versioning is implemented.
+=======
 TBD. This will describe the structure for how we are storing and tracking plusses.
+>>>>>>> 9e781c29327f8f882bb5f2e4eccc4b8eff39b9bd
 
 ### Centralized Authoritative Tracking
 This is not for sure an ask, but putting a placeholder in case we want to track in a central place (like a google doc) instead of relying only on the gossip

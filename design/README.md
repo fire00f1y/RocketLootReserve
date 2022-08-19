@@ -9,6 +9,9 @@ This document will show what changes we plan on making to help me keep track of 
   - [Host Window Options](#host-window-options)
 - [Backend](#backend)
   - [Tracking of Plusses](#tracking-of-plusses)
+  - [Centralized Authoritative Tracking](#centralized-authoritative-tracking)
+  - [Admin Tool](#admin-tool)
+  - [Distribution](#distribution)
 
 ## Windows
 
@@ -55,5 +58,16 @@ Things to change:
 ### Host Window Options
 
 ## Backend
+This section will deal primarily with the technical implementation of different components. 
 
 ### Tracking of Plusses
+TBD. This will describe the structure for how we are storing and tracking plusses.
+
+### Centralized Authoritative Tracking
+This is not for sure an ask, but putting a placeholder in case we want to track in a central place (like a google doc) instead of relying only on the gossip
+
+### Admin Tool
+If we have a central tracking location (see above), we will need some kind of desktop app to sync with the addon and to have admin stuff like editing or giving access or whatnot.
+
+### Distribution
+TBD. Making it easier for the guild members to acquire and update the mod.

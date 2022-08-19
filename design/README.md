@@ -2,6 +2,14 @@
 
 This document will show what changes we plan on making to help me keep track of what needs to be done. It should show current layout along with expected future layout.
 
+- [Windows](#windows)
+  - [Main Window](#main-window)
+  - [Main Window Options](#main-window-options)
+  - [Host Window](#host-window)
+  - [Host Window Options](#host-window-options)
+- [Backend](#backend)
+  - [Tracking of Plusses](#tracking-of-plusses)
+
 ## Windows
 
 ### Main Window
@@ -41,3 +49,11 @@ Things to change:
 - Add button to show plusses for all people for all raids? If so, what should that look like?
 
 ![Main screen options](pictures/main_screen_options.png)
+
+### Host Window
+
+### Host Window Options
+
+## Backend
+
+### Tracking of Plusses

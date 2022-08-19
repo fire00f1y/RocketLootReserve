@@ -61,7 +61,6 @@ Things to change:
 This section will deal primarily with the technical implementation of different components.
 
 ### Tracking of Plusses
-<<<<<<< HEAD
 The implementation of the tracking the plusses will be a traditional gossip protocol where each client keeps a copy of the source with a version and syncs with all the other clients when there is a change.
 This is required due to blizzard's restriction of making external network requests from the wow client.
 <!---
@@ -107,9 +106,6 @@ Two things to note:
 2. It makes sure the loot event is over before syncing.
 
 The danger in using this is that updates may not be received by every member, which is why versioning is implemented.
-=======
-TBD. This will describe the structure for how we are storing and tracking plusses.
->>>>>>> 9e781c29327f8f882bb5f2e4eccc4b8eff39b9bd
 
 ### Centralized Authoritative Tracking
 This is not for sure an ask, but putting a placeholder in case we want to track in a central place (like a google doc) instead of relying only on the gossip

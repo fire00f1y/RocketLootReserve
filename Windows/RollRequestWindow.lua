@@ -9,13 +9,13 @@ local function RollRequested(self, sender, item, players, custom, duration, maxD
 
     self.RollRequest = nil;
     frame:Hide();
-
+    
     if item:GetID() == 0 then
-        return ;
+        return;
     end
 
     local _, myCount = LootReserve:GetReservesData(players, LootReserve:Me());
-
+    
     if LootReserve.Client.Settings.RollRequestAutoRollReserved and not custom then
         LootReserve:PrintMessage("Automatically rolling on reserved item: %s%s", item:GetLink(), (myCount or 1) > 1 and ("x" .. myCount) or "");
         if not LootReserve.Client.Settings.RollRequestAutoRollNotified then
@@ -25,34 +25,29 @@ local function RollRequested(self, sender, item, players, custom, duration, maxD
         for i = 1, myCount or 1 do
             RandomRoll(1, 100);
         end
-        return ;
+        return;
     end
-
+    
     if not example then
-        if not self.Settings.RollRequestShow then
-            return ;
-        end
-        if not LootReserve:Contains(players, LootReserve:Me()) then
-            return ;
-        end
-        if custom and not self.Settings.RollRequestShowUnusable and (not LootReserve.ItemConditions:IsItemUsableByMe(item:GetID()) and item:GetBindType() == LE_ITEM_BIND_ON_ACQUIRE) then
-            return ;
-        end
+        if not self.Settings.RollRequestShow then return; end
+        if not LootReserve:Contains(players, LootReserve:Me()) then return; end
+        if custom and not self.Settings.RollRequestShowUnusable and (not LootReserve.ItemConditions:IsItemUsableByMe(item:GetID()) and (not self.Settings.RollRequestShowUnusableBoE or item:GetBindType() == LE_ITEM_BIND_ON_ACQUIRE)) then return; end
     end
 
-    self.RollRequest = {
-        Sender = sender,
-        Item = item,
-        Custom = custom or nil,
-        Duration = duration and duration > 0 and duration or nil,
+    self.RollRequest =
+    {
+        Sender      = sender,
+        Item        = item,
+        Custom      = custom or nil,
+        Duration    = duration and duration > 0 and duration or nil,
         MaxDuration = maxDuration and maxDuration > 0 and maxDuration or nil,
-        Phase = phase,
-        Example = example,
-        Count = myCount,
+        Phase       = phase,
+        Example     = example,
+        Count       = myCount,
     };
     local roll = self.RollRequest;
 
-    local description = LootReserve:GetItemDescription(item:GetID());
+    local description = LootReserve:GetItemDescription(item:GetID(), true);
     local name, link, texture = item:GetNameLinkTexture();
 
     frame.Sender = sender;
@@ -120,7 +115,7 @@ local function RollRequested(self, sender, item, players, custom, duration, maxD
 end
 
 function LootReserve.Client:RollRequested(sender, item, ...)
-    local args = { ... };
+    local args = {...};
     if item:GetID() == 0 then
         RollRequested(LootReserve.Client, sender, item, ...);
     else
@@ -136,9 +131,7 @@ function LootReserve.Client:RespondToRollRequest(response)
     end
     LootReserveRollRequestWindow:Hide();
 
-    if not self.RollRequest then
-        return ;
-    end
+    if not self.RollRequest then return; end
 
     if not self.RollRequest.Example then
         if response then

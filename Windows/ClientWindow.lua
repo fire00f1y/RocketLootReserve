@@ -10,7 +10,7 @@ function LootReserve.Client:UpdateReserveStatus()
         self.Window.OptOut:SetShown(false);
         self.Window.OptIn:SetShown(false);
     elseif not self.AcceptingReserves then
-        self.Window.RemainingText:SetText("|cFF808080Loot reserves are no longer being accepted|r");
+        self.Window.RemainingText:SetText("|cFF808080Loot reserves are not currently being accepted|r");
         --self.Window.RemainingTextGlow:SetVertexColor(1, 0, 0, 0.15);
         -- animated in LootReserve.Client:OnWindowLoad instead
         self.Window.OptOut:SetShown(false);
@@ -39,8 +39,10 @@ function LootReserve.Client:UpdateReserveStatus()
         self.Window.OptOut:SetShown(not self.OptedOut);
         self.Window.OptIn:SetShown(self.OptedOut);
     end
+    self.Window.MasqueradeHelperText:SetShown(self.SessionServer and LootReserve:IsMe(self.SessionServer));
     self.Window.Masquerade:SetShown(self.SessionServer and LootReserve:IsMe(self.SessionServer));
-    self.Window.Masquerade.Text:SetText(LootReserve:ColoredPlayer(self.Masquerade or LootReserve:Me()))
+    self.Window.Masquerade.Text:SetText(LootReserve:ColoredPlayer(self.Masquerade or LootReserve:Me()));
+    self.Window.Masquerade:SetWidth(math.max(100, self.Window.Masquerade.Text:GetUnboundedStringWidth() + self.Window.Masquerade.Icon:GetWidth()*4));
 
     self.Window.OptOut:SetEnabled(not self:IsOptPending());
     self.Window.OptIn:SetEnabled(not self:IsOptPending());
@@ -50,6 +52,10 @@ function LootReserve.Client:UpdateReserveStatus()
 
     for i, frame in ipairs(list.Frames) do
         local item = frame.Item;
+        local tokenID = LootReserve.Data:GetToken(item:GetID());
+        if tokenID then
+            item = LootReserve.ItemCache:Item(tokenID);
+        end
         if item:GetID() ~= 0 then
             local _, myReserves, uniquePlayers, totalReserves = LootReserve:GetReservesData(self:GetItemReservers(item:GetID()), self.Masquerade or LootReserve:Me());
             local canReserve = self.SessionServer and self:HasRemainingReserves() and LootReserve.ItemConditions:IsItemReservableOnClient(item:GetID()) and (not self.Multireserve or myReserves < self.Multireserve);
@@ -128,6 +134,10 @@ function LootReserve.Client:UpdateLootList()
     local missing = { };
     local missingLoad = { };
     local function createFrame(item, source)
+        if not item:IsCached() then
+            return;
+        end
+        
         list.LastIndex = list.LastIndex + 1;
         local frame = list.Frames[list.LastIndex];
         while not frame do
@@ -162,12 +172,14 @@ function LootReserve.Client:UpdateLootList()
             local name, link, texture = item:GetNameLinkTexture();
             frame.Link = link;
 
-            local conditions = self.ItemConditions[item:GetID()];
+            local tokenID = LootReserve.Data:GetToken(item:GetID());
+            local conditions = self.ItemConditions[tokenID or item:GetID()];
             if conditions and conditions.Limit and conditions.Limit ~= 0 then
                 source = format("|cFFFF0000(Max %d |4reserve:reserves;) |r%s", conditions.Limit, source or description or "");
             end
 
             frame.ItemFrame.Icon:SetTexture(texture);
+            frame.ItemFrame.Name:SetMaxLines(1);
             frame.ItemFrame.Name:SetText((link or name or "|cFFFF4000Loading...|r"):gsub("[%[%]]", ""));
             frame.ItemFrame.Misc:SetText(source or description);
             frame.Favorite:SetPoint("LEFT", frame.ItemFrame.Name, "LEFT", math.min(frame.ItemFrame:GetWidth() - 57, frame.ItemFrame.Name:GetStringWidth()), 0);
@@ -321,6 +333,12 @@ function LootReserve.Client:UpdateLootList()
                                         end
                                     end
                                 end
+                                if LootReserve.Data:IsTokenReward(itemID) then
+                                    local token = LootReserve.ItemCache:Item(LootReserve.Data:GetToken(itemID));
+                                    if not token:IsCached() then
+                                        table.insert(missing, token);
+                                    end
+                                end
                             end
                         end
                     end
@@ -349,6 +367,12 @@ function LootReserve.Client:UpdateLootList()
                 end
                 if not item:IsCached() then
                     table.insert(missing, item);
+                end
+                if LootReserve.Data:IsTokenReward(itemID) then
+                    local token = LootReserve.ItemCache:Item(LootReserve.Data:GetToken(itemID));
+                    if not token:IsCached() then
+                        table.insert(missing, token);
+                    end
                 end
             elseif itemID == 0 then
                 createFrame(LootReserve.ItemCache:Item(0));

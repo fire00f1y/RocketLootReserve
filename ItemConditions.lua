@@ -1,12 +1,13 @@
 LootReserve = LootReserve or { };
 LootReserve.ItemConditions = LootReserve.ItemConditions or { };
 
-local DefaultConditions = {
-    Hidden = nil,
-    Custom = nil,
-    Faction = nil,
+local DefaultConditions =
+{
+    Hidden    = nil,
+    Custom    = nil,
+    Faction   = nil,
     ClassMask = nil,
-    Limit = nil,
+    Limit     = nil,
 };
 
 function LootReserve.ItemConditions:Get(itemID, server)
@@ -70,13 +71,13 @@ function LootReserve.ItemConditions:Save(itemID, server)
                 for k, v in pairs(conditions) do
                     if v ~= default[k] then
                         different = true;
-                        break ;
+                        break;
                     end
                 end
                 for k, v in pairs(default) do
                     if v ~= conditions[k] then
                         different = true;
-                        break ;
+                        break;
                     end
                 end
             else
@@ -144,20 +145,22 @@ function LootReserve.ItemConditions:HasCustom(server)
     return false;
 end
 
+
+
 local UNUSABLE_EQUIPMENT = { };
 
-local armorClasses = { "Miscellaneous", "Cloth", "Leather", "Mail", "Shields", "Plate", "Librams", "Idols", "Totems" };
+local armorClasses = {"Miscellaneous", "Cloth", "Leather", "Mail", "Shields", "Plate", "Librams", "Idols", "Totems"};
 
 local usableArmor = {
-    WARRIOR = { Leather = true, Mail = true, Plate = true, Shields = true },
-    ROGUE = { Leather = true },
-    MAGE = {},
-    PRIEST = {},
+    WARRIOR = {Leather = true, Mail = true, Plate = true, Shields = true},
+    ROGUE   = {Leather = true},
+    MAGE    = {},
+    PRIEST  = {},
     WARLOCK = {},
-    HUNTER = { Leather = true, Mail = true },
-    DRUID = { Leather = true, Idols = true },
-    SHAMAN = { Leather = true, Mail = true, Shields = true, Totems = true },
-    PALADIN = { Leather = true, Mail = true, Plate = true, Shields = true, Librams = true },
+    HUNTER  = {Leather = true, Mail = true},
+    DRUID   = {Leather = true, Idols = true},
+    SHAMAN  = {Leather = true, Mail = true, Shields = true, Totems = true},
+    PALADIN = {Leather = true, Mail = true, Plate = true, Shields = true, Librams = true},
 };
 for _, armorTypes in pairs(usableArmor) do
     armorTypes.Miscellaneous = true;
@@ -165,7 +168,7 @@ for _, armorTypes in pairs(usableArmor) do
 end
 for class in pairs(usableArmor) do
     UNUSABLE_EQUIPMENT[class] = {
-        [ARMOR] = {},
+        [ARMOR]  = {},
         [WEAPON] = {},
     };
     for _, armorType in ipairs(armorClasses) do
@@ -174,63 +177,70 @@ for class in pairs(usableArmor) do
 end
 
 local function setClassWeapons(class, ...)
-    for _, weapon in ipairs { ... } do
+    for _, weapon in ipairs{...} do
         UNUSABLE_EQUIPMENT[class][WEAPON][weapon] = nil;
     end
 end
 
 for class in pairs(usableArmor) do
-    for _, weapon in ipairs { "Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
-                              "Two-Handed Maces", "One-Handed Maces", "Polearms", "Staves", "Daggers",
-                              "Fist Weapons", "Bows", "Crossbows", "Guns", "Thrown", "Wands", "Relic" } do
+    for _, weapon in ipairs{"Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
+                            "Two-Handed Maces", "One-Handed Maces", "Polearms", "Staves", "Daggers",
+                            "Fist Weapons", "Bows", "Crossbows", "Guns", "Thrown", "Wands", "Relic"} do
         UNUSABLE_EQUIPMENT[class][WEAPON][weapon] = true;
     end
 end
 
-setClassWeapons("DRUID", "Two-Handed Maces", "One-Handed Maces", "Staves", "Daggers", "Fist Weapons", "Relic");
-setClassWeapons("HUNTER", "Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
-        "Polearms", "Staves", "Daggers", "Fist Weapons", "Bows",
-        "Crossbows", "Guns", "Thrown");
-setClassWeapons("MAGE", "One-Handed Swords", "Staves", "Daggers", "Wands");
+setClassWeapons("DRUID",   "Two-Handed Maces", "One-Handed Maces", "Staves", "Daggers", "Fist Weapons", "Relic");
+setClassWeapons("HUNTER",  "Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
+                           "Polearms", "Staves", "Daggers", "Fist Weapons", "Bows", 
+                           "Crossbows", "Guns", "Thrown");
+setClassWeapons("MAGE",    "One-Handed Swords", "Staves", "Daggers", "Wands");
 setClassWeapons("PALADIN", "Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
-        "Two-Handed Maces", "One-Handed Maces", "Polearms", "Relic");
-setClassWeapons("PRIEST", "One-Handed Maces", "Staves", "Daggers", "Wands");
-setClassWeapons("ROGUE", "One-Handed Swords", "One-Handed Maces", "Daggers", "Fist Weapons",
-        "Bows", "Crossbows", "Guns", "Thrown");
-setClassWeapons("SHAMAN", "Two-Handed Axes", "One-Handed Axes", "Two-Handed Maces", "One-Handed Maces",
-        "Staves", "Daggers", "Fist Weapons", "Relic");
+                           "Two-Handed Maces", "One-Handed Maces", "Polearms", "Relic");
+setClassWeapons("PRIEST",  "One-Handed Maces", "Staves", "Daggers", "Wands");
+setClassWeapons("ROGUE",   "One-Handed Swords", "One-Handed Maces", "Daggers", "Fist Weapons",
+                           "Bows", "Crossbows", "Guns", "Thrown");
+setClassWeapons("SHAMAN",  "Two-Handed Axes", "One-Handed Axes", "Two-Handed Maces", "One-Handed Maces",
+                           "Staves", "Daggers", "Fist Weapons", "Relic");
 setClassWeapons("WARLOCK", "One-Handed Swords", "Staves", "Daggers", "Wands");
 setClassWeapons("WARRIOR", "Two-Handed Axes", "One-Handed Axes", "Two-Handed Swords", "One-Handed Swords",
-        "Two-Handed Maces", "One-Handed Maces", "Polearms", "Staves", "Daggers", "Fist Weapons",
-        "Bows", "Crossbows", "Guns", "Thrown");
+                           "Two-Handed Maces", "One-Handed Maces", "Polearms", "Staves", "Daggers", "Fist Weapons", 
+                           "Bows", "Crossbows", "Guns", "Thrown");
+
 
 local function IsItemUsable(itemID, playerClass, isMe)
     local numOwned;
     if isMe then
         numOwned = GetItemCount(itemID, true) - LootReserve:GetTradeableItemCount(itemID);
     end
-
+    
     local item = LootReserve.ItemCache:Item(itemID);
     if not item:Cache():IsCached() then
         return true, true;
     end
-
+    
     -- If item is Armor or Weapon then fail if class cannot equip it
     local itemType, itemSubType = item:GetTypeSubType();
     if UNUSABLE_EQUIPMENT[playerClass][itemType] then
         if UNUSABLE_EQUIPMENT[playerClass][itemType][itemSubType] then
-            return false;
+           return false; 
         end
     end
-
-    -- If item starts a quest, make sure the quest is not completed or in progress
+    
+    -- If item starts a quest, make sure the quest is not completed and I do not already own the item
+    -- If item requires a quest to loot, make sure the quest is not completed, I am on it, and I do not already own the item
     if isMe then
         local questStartID = LootReserve.Data:GetQuestStarted(itemID);
-        local questDropID = LootReserve.Data:GetQuestDropRequirement(itemID);
+        local questDropID  = LootReserve.Data:GetQuestDropRequirement(itemID);
         if questStartID or questDropID then
             if C_QuestLog.IsQuestFlaggedCompleted(questStartID or questDropID) then
                 return false;
             end
+            if numOwned > 0 then
+                return false;
+            end
+        end
+        if questDropID then
             local found = false;
             local collapsedHeaders = { };
             local i = 1;
@@ -243,7 +253,7 @@ local function IsItemUsable(itemID, playerClass, isMe)
                     end
                 elseif questID == questStartID or questID == questDropID then
                     found = true;
-                    break ;
+                    break;
                 end
                 i = i + 1;
             end
@@ -251,19 +261,19 @@ local function IsItemUsable(itemID, playerClass, isMe)
             for _, i in ipairs(collapsedHeaders) do
                 CollapseQuestHeader(i);
             end
-            if (found and questStartID) or (not found and questDropID) then
+            if found then
                 return false;
             end
         end
     end
-
+    
     if not item:IsUsableBy(playerClass) then
         return false
     end
     if isMe and numOwned > 0 and item:IsUnique() then
         return false
     end
-
+    
     local unique = item:IsUnique();
     if isMe and item:IsLoaded() then
         -- If item is class-locked then make sure this class is listed
@@ -279,7 +289,7 @@ local function IsItemUsable(itemID, playerClass, isMe)
             LootReserve.TooltipScanner.AlreadyKnown = format("^(%s)$", ITEM_SPELL_KNOWN);
         end
         if not LootReserve.TooltipScanner.ProfessionAllowed then
-            LootReserve.TooltipScanner.ProfessionAllowed = format("^%s$", ITEM_MIN_SKILL:gsub("%d+%$", ""):gsub("%%s ", "([%%u%%l%%s]+) "):gsub("%(%%d%)", "%%((%%d+)%%)"));
+            LootReserve.TooltipScanner.ProfessionAllowed = format("^%s$", ITEM_MIN_SKILL:gsub("%d+%$",""):gsub("%%s ", "([%%u%%l%%s]+) "):gsub("%(%%d%)", "%%((%%d+)%%)"));
         end
 
         LootReserve.TooltipScanner:SetOwner(UIParent, "ANCHOR_NONE");
@@ -288,20 +298,20 @@ local function IsItemUsable(itemID, playerClass, isMe)
             local line = _G[LootReserve.TooltipScanner:GetName() .. "TextLeft" .. i];
             if line and line:GetText() then
                 local problem = false;
-
+                    
                 if line:GetText():match(LootReserve.TooltipScanner.AlreadyKnown) then
                     local r, g, b = line:GetTextColor();
-                    r, g, b = r * 255, g * 255, b * 255;
+                    r, g, b = r*255, g*255, b*255;
                     if r > 254 and r <= 255 and g > 31 and g <= 32 and b > 31 and b <= 32 then
                         problem = true;
                     end
-
+                    
                 elseif line:GetText():match(LootReserve.TooltipScanner.ProfessionAllowed) then
                     if numOwned > 0 then
                         problem = true;
                     else
                         local r, g, b = line:GetTextColor();
-                        r, g, b = r * 255, g * 255, b * 255;
+                        r, g, b = r*255, g*255, b*255;
                         if r > 254 and r <= 255 and g > 31 and g <= 32 and b > 31 and b <= 32 then
                             problem = true;
                         end
@@ -315,7 +325,7 @@ local function IsItemUsable(itemID, playerClass, isMe)
         end
         LootReserve.TooltipScanner:Hide();
     end
-
+    
     return true, not item:IsLoaded();
 end
 
@@ -324,7 +334,7 @@ local usableCacheHooked = nil;
 local function IsItemUsableByMe(itemID)
     if not usableCacheHooked then
         usableCacheHooked = true;
-        LootReserve:RegisterEvent("QUEST_ACCEPTED", "QUEST_TURNED_IN", "BAG_UPDATE", "CHAT_MSG_SKILL", function()
+        LootReserve:RegisterEvent("QUEST_ACCEPTED", "QUEST_TURNED_IN", "BAG_UPDATE_DELAYED", "CHAT_MSG_SKILL", function()
             usableCache = { };
         end);
     end
@@ -338,6 +348,7 @@ local function IsItemUsableByMe(itemID)
     end
     return usableCache[itemID], true;
 end
+
 
 function LootReserve.ItemConditions:IsItemUsable(itemID, playerClass)
     return IsItemUsable(itemID, playerClass, false);
@@ -378,7 +389,7 @@ function LootReserve.ItemConditions:TestPlayer(player, itemID, server)
         -- Show all items until connected to a server
         return true;
     end
-    local playerClass, playerClassID = select(2, LootReserve:UnitClass(player))
+    local playerClass, playerClassID = select(2, LootReserve:UnitClass(player));
 
     local conditions = self:Get(itemID, server);
     local equip
@@ -423,12 +434,20 @@ function LootReserve.ItemConditions:TestServer(itemID)
 end
 
 function LootReserve.ItemConditions:IsItemVisibleOnClient(itemID)
+    local tokenID = LootReserve.Data:GetToken(itemID);
+    if tokenID and not self:IsItemVisibleOnClient(tokenID) then
+        return false;
+    end
     local canReserve, conditionResult = self:TestPlayer(LootReserve.Client.Masquerade or LootReserve:Me(), itemID, false);
     return canReserve or conditionResult == LootReserve.Constants.ReserveResult.FailedLimit
-            or ((conditionResult == LootReserve.Constants.ReserveResult.FailedClass or conditionResult == LootReserve.Constants.ReserveResult.FailedUsable) and (LootReserve.Client.Locked or not LootReserve.Client.AcceptingReserves));
+           or ((conditionResult == LootReserve.Constants.ReserveResult.FailedClass or conditionResult == LootReserve.Constants.ReserveResult.FailedUsable) and (LootReserve.Client.Locked or not LootReserve.Client.AcceptingReserves));
 end
 
 function LootReserve.ItemConditions:IsItemReservableOnClient(itemID)
+    local tokenID = LootReserve.Data:GetToken(itemID);
+    if tokenID and not self:IsItemReservableOnClient(tokenID) then
+        return false;
+    end
     local canReserve, conditionResult = self:TestPlayer(LootReserve.Client.Masquerade or LootReserve:Me(), itemID, false);
     return canReserve;
 end
@@ -473,7 +492,7 @@ function LootReserve.ItemConditions:Unpack(text)
                 if tonumber(mask) then
                     conditions.ClassMask = tonumber(mask);
                 else
-                    break ;
+                    break;
                 end
             end
         elseif char == "L" then
@@ -482,7 +501,7 @@ function LootReserve.ItemConditions:Unpack(text)
                 if tonumber(limit) then
                     conditions.Limit = tonumber(limit);
                 else
-                    break ;
+                    break;
                 end
             end
         end

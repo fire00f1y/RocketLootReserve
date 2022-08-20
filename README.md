@@ -29,4 +29,9 @@ We want to make a couple of additions:
 
 ## Todo
 
-- Learn wtf
+- [x] Learn wtf
+- [] Finish design doc
+- [] Add in basic plus tracking
+- [] Add in window to view plus
+- [] Add plus everywhere needed
+- [] (optional) Build desktop companion

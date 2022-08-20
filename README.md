@@ -29,8 +29,6 @@ There are currently no plans to distribute this via one of the popular methods s
 
 - Click and drag that to your wow addon folder located in step 1
 
-
-
 4. You're done!
 
 ## ChangeLog
@@ -47,3 +45,10 @@ There are currently no plans to distribute this via one of the popular methods s
 - [ ] Automatic loading of preivous raid
 - [ ] Add in basic plus tracking
 - [ ] (optional) Build desktop companion
+
+## Resources
+This is basically for me to keep track of the various resources I reference:
+- [Wow Files](https://wow.tools/files/#search=&page=1&sort=0&desc=asc)
+- [API Ref](https://wowpedia.fandom.com/wiki/World_of_Warcraft_API)
+- [List of Events](https://wowpedia.fandom.com/wiki/Events)
+- [Ace Reference](https://www.wowace.com/projects/ace3)

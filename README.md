@@ -1,37 +1,43 @@
 # Rocket Loot Reserve
 
 This is a fork of the [LootReserve](https://github.com/Anonomit/LootReserve) addon for World of Warcraft. We are using
-it as a base and adding additional functionality in that our guild specifically needs.
+it as a base and adding additional functionality in that our guild specifically needs. For a look into what is different, please see the [Design Document](/design/README.md)
 
 - [Installation](#installation)
-- [New Feature](#new-features)
 - [ChangeLog](#changelog)
 - [Todo](#todo)
 
 ## Installation
 
-There are currently no plans to distribute this via one of the popular methods such as Curse or WowUp. Instead, you
-will need to download this whole thing as a zip and extract it to your `Interface/Addons` folder directly.
+There are currently no plans to distribute this via one of the popular methods such as Curse or WowUp. Instead, you will need to do a manual installation following these steps:
 
-## New Features
+1. Navigate to your addon folder by going to `{Wow Install Folder}\_classic_\Interface\AddOns`. By default, `{Wow Install Folder}` is in your Program Files.
 
-We want to make a couple of additions:
+2. Download all the code as a zip:
 
-1. Ability to have multiple people be host of the SR session
-2. Be able to share data amongst several hosts
-3. Track week-over-week reserves to add additional values to people's rolls so that if someone reserves the same item
-   religiously they get rewarded with increased chance to win
-4. Display updates to include the +modifier system wherever applicable
+- In this page, click on the green `Code` button:
+
+![Installation Code Button](/design//pictures/install_1.png)
+
+- Then you click the `Download ZIP` option:
+
+~[Installation ZIP](/design/pictures/install_2.png)
+
+3. Open the zip file. You will see a single folder called `RocketLootReserve-main`. Click and drag that to your wow addon folder located in step 1
+
+4. You're done!
 
 ## ChangeLog
 
-- No changes yet
+- Started design document
 
 ## Todo
 
 - [x] Learn wtf
 - [ ] Finish design doc
-- [ ] Add in basic plus tracking
 - [ ] Add in window to view plus
 - [ ] Add plus everywhere needed
+- [ ] Support multiple hosts
+- [ ] Automatic loading of preivous raid
+- [ ] Add in basic plus tracking
 - [ ] (optional) Build desktop companion

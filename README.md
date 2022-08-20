@@ -21,7 +21,7 @@ There are currently no plans to distribute this via one of the popular methods s
 
 - Then you click the `Download ZIP` option:
 
-~[Installation ZIP](/design/pictures/install_2.png)
+![Installation ZIP](/design/pictures/install_2.png)
 
 3. Open the zip file. You will see a single folder called `RocketLootReserve-main`. Click and drag that to your wow addon folder located in step 1
 
